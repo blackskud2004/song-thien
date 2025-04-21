@@ -1,0 +1,141 @@
+<!DOCTYPE html>
+<html lang="vi">
+<head>
+    <meta charset="utf-8"/>
+    <meta content="width=device-width, initial-scale=1.0" name="viewport"/>
+    <link href="https://cdnjs.cloudflare.com/ajax/libs/font-awesome/5.15.4/css/all.min.css" rel="stylesheet"/>
+    <link href="https://fonts.googleapis.com" rel="preconnect"/>
+    <link crossorigin="" href="https://fonts.gstatic.com" rel="preconnect"/>
+    <link href="https://fonts.googleapis.com/css2?family=Inter:ital,opsz,wght@0,14..32,100..900;1,14..32,100..900&family=Montserrat:wght@800&display=swap" rel="stylesheet"/>
+    <title>TK Table Component</title>
+    <style>
+        body {
+        .tk-table {
+            width: 100%;
+            max-width: 1349.531px;
+            height: auto;
+            min-height: 592.048px;
+            flex-shrink: 0;
+            background: #0098DB;
+            position: relative;
+            margin: 47.08px auto 0;
+            left: auto;
+            transform: none;
+            transition: background 0.5s ease;
+        }
+        
+        .tk-vector-left, .tk-vector-right {
+            position: absolute;
+            top: 36%;
+            transform: translateY(-50%);
+            width: 43.974px;
+            height: 51.614px;
+            z-index: 100;
+        }
+        
+        .tk-vector-left {
+            left: 200px;
+        }
+        
+        .tk-vector-right {
+            right: 200px;
+        }
+        
+        .tk-vector-left button, .tk-vector-right button {
+            background: none;
+            border: none;
+            padding: 0;
+            cursor: pointer;
+            display: block;
+            width: 100%;
+            height: 100%;
+        }
+        
+        .tk-vector-left button svg, .tk-vector-right button svg {
+            width: 100%;
+            height: 100%;
+        }
+        
+        .tk-vector-left button svg path,
+        .tk-vector-right button svg path {
+            fill: #0098DB;
+        }
+
+        .tk-dots-container {
+            position: absolute;
+            top: 70%;
+            left: 50%;
+            transform: translateX(-50%);
+            display: flex;
+            gap: 10px;
+        }
+
+        .tk-dot {
+            width: 9px;
+            height: 10px;
+            flex-shrink: 0;
+            border-radius: 40px;
+            background: #0098DB;
+            transition: height 0.3s ease;
+        }
+
+        .tk-dot.active {
+            height: 20px;
+        }
+    </style>
+</head>
+<body>
+        <div class="tk-table"></div>
+        <div class="tk-vector-left">
+            <button>
+                <svg xmlns="http://www.w3.org/2000/svg" width="66.459" height="80" viewBox="0 0 44 54" fill="none">
+                    <path d="M1.12043 24.8399C-0.373477 25.7583 -0.373477 27.9767 1.12043 28.8951L40.4787 53.0932C42.0167 54.0387 43.9735 52.9035 43.9735 51.0656V2.66939C43.9735 0.831442 42.0167 -0.303767 40.4787 0.641807L1.12043 24.8399Z" fill="#0098DB"/>
+                </svg>
+            </button>
+        </div>
+        <div class="tk-vector-right">
+            <button>
+                <svg xmlns="http://www.w3.org/2000/svg" width="68.429" height="80" viewBox="0 0 44 53" fill="none">
+                    <path d="M42.8804 24.6569C44.3743 25.549 44.3743 27.704 42.8804 28.5962L3.52213 52.1029C1.98415 53.0214 0.0273438 51.9187 0.0273438 50.1332V3.11979C0.0273438 1.33436 1.98415 0.231584 3.52213 1.15014L42.8804 24.6569Z" fill="#0098DB"/>
+                </svg>
+            </button>
+        </div>
+        <div class="tk-dots-container">
+            <span class="tk-dot active"></span>
+            <span class="tk-dot"></span>
+            <span class="tk-dot"></span>
+            <span class="tk-dot"></span>
+        </div>
+
+    <script>
+        document.addEventListener('DOMContentLoaded', function() {
+            const tkTable = document.querySelector('.tk-table');
+            const tkLeftButton = document.querySelector('.tk-vector-left button');
+            const tkRightButton = document.querySelector('.tk-vector-right button');
+            const tkDots = document.querySelectorAll('.tk-dot');
+            const colors = ['#0098DB', '#0085C0', '#03638E', '#002434'];
+            let currentColorIndex = 0;
+
+            function updateTableBackgroundAndDots() {
+                tkTable.style.background = colors[currentColorIndex];
+                tkDots.forEach((dot, index) => {
+                    dot.classList.toggle('active', index === currentColorIndex);
+                });
+            }
+
+            tkLeftButton.addEventListener('click', function() {
+                currentColorIndex = (currentColorIndex - 1 + colors.length) % colors.length;
+                updateTableBackgroundAndDots();
+            });
+
+            tkRightButton.addEventListener('click', function() {
+                currentColorIndex = (currentColorIndex + 1) % colors.length;
+                updateTableBackgroundAndDots();
+            });
+
+            // Initialize with the first color and active dot
+            updateTableBackgroundAndDots();
+        });
+    </script>
+</body>
+</html>

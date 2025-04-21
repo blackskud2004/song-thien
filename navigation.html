@@ -1,0 +1,627 @@
+<!DOCTYPE html>
+<html lang="vi">
+<head>
+  <meta charset="UTF-8">
+  <meta name="viewport" content="width=device-width, initial-scale=1.0">
+  <link rel="stylesheet" href="https://cdnjs.cloudflare.com/ajax/libs/font-awesome/5.15.4/css/all.min.css">
+  <link rel="preconnect" href="https://fonts.googleapis.com">
+  <link rel="preconnect" href="https://fonts.gstatic.com" crossorigin>
+  <link href="https://fonts.googleapis.com/css2?family=Inter:ital,opsz,wght@0,14..32,100..900;1,14..32,100..900&display=swap" rel="stylesheet">
+  <link href="https://fonts.googleapis.com/css2?family=Inter:ital,opsz,wght@0,14..32,100..900;1,14..32,100..900&family=Montserrat:wght@800&display=swap" rel="stylesheet">
+  <title>Navigation and Menu</title>
+  <style>
+    body {
+      font-family: "Inter", sans-serif;
+      font-optical-sizing: auto;
+      font-weight: 700;
+      font-style: normal;
+      background: #f0f0f0;
+    }
+    .navbar {
+      background-color: #0098D8;
+      display: flex;
+      align-items: center;
+      justify-content: space-between;
+      width: 100%;
+      max-width: 1920px;
+      height: 104px;
+      flex-shrink: 0;
+      position: fixed;
+      top: 0;
+      left: 50%;
+      transform: translateX(-50%);
+      z-index: 1000;
+      transition: opacity 0.3s;
+      padding: 0 20px;
+    }
+    .navbar.dimmed {
+      opacity: 0.6;
+    }
+    .navbar-left {
+      display: flex;
+      align-items: center;
+      margin-left: 139px;
+    }
+    .navbar-center {
+      display: flex;
+      align-items: center;
+      margin-right: 90px;
+    }
+    .navbar-right {
+      display: flex;
+      align-items: center;
+      margin-right: 100px;
+    }
+    .logo {
+      width: 160px;
+      height: 160px;
+      flex-shrink: 0;
+      aspect-ratio: 1/1;
+      background: url(logo/1.png) 50% / cover no-repeat;
+      margin-right: 20px;
+    }
+    .navbar-center a {
+      color: white;
+      text-decoration: none;
+      font-size: 16px;
+      font-weight: bold;
+      display: flex;
+      flex-direction: column;
+      align-items: center;
+      justify-content: center;
+      width: 148px;
+      height: 104px;
+      flex-shrink: 0;
+      transition: background 0.3s;
+    }
+    .navbar-center a:hover, .navbar-center a.active {
+      width: 148px;
+      height: 104px;
+      flex-shrink: 0;
+      border: 0px solid #000;
+      background: linear-gradient(180deg, rgba(255, 255, 255, 0.53) 0%, rgba(115, 115, 115, 0.00) 100%);
+      display: flex;
+      justify-content: center;
+      align-items: center;
+    }
+    .navbar-center i {
+      font-size: 24px;
+      margin-bottom: 5px;
+    }
+    .navbar-center .home {
+      width: 148px;
+      height: 104px;
+      flex-shrink: 0;
+      display: flex;
+      flex-direction: column;
+      align-items: center;
+      justify-content: center;
+    }
+    .navbar-center .home:hover, .navbar-center .home.active {
+      width: 148px;
+      height: 104px;
+      flex-shrink: 0;
+      border: 0px solid #000;
+      background: linear-gradient(180deg, rgba(255, 255, 255, 0.53) 0%, rgba(115, 115, 115, 0.00) 100%);
+      display: flex;
+      justify-content: center;
+      align-items: center;
+    }
+    .navbar-center .field-activity span {
+      display: block;
+      line-height: 1.2;
+    }
+    .search-bar {
+      display: flex;
+      align-items: center;
+      width: 305.703px;
+      height: 39.875px;
+      flex-shrink: 0;
+      fill: #FFF;
+      margin-left: 4.47px;
+      position: relative;
+    }
+    .search-icon {
+      width: 18.383px;
+      height: 18.379px;
+      flex-shrink: 0;
+      stroke-width: 2.835px;
+      stroke: #A7A7A7;
+      position: absolute;
+      right: 15px;
+      top: 50%;
+      transform: translateY(-50%);
+    }
+    .search-bar input {
+      border: none;
+      outline: none;
+      font-size: 14px;
+      width: 200px;
+      background: transparent;
+      position: absolute;
+      left: 15px;
+      top: 50%;
+      transform: translateY(-50%);
+    }
+    .navbar-right a {
+      display: flex;
+      align-items: center;
+      justify-content: center;
+      padding: 10px;
+      transition: transform 0.3s;
+    }
+    .navbar-right a:hover {
+      transform: scale(0.8);
+    }
+    .navbar-right .icon-grid {
+      width: 52px;
+      height: 52px;
+      flex-shrink: 0;
+      cursor: pointer;
+      padding-right: 15px;
+      padding-left: 10px;
+    }
+    .navbar-right .icon-grid .square-top-right,
+    .navbar-right .icon-grid .square-bottom-left {
+      transition: transform 0.3s;
+      transform-origin: center;
+    }
+    .navbar-right .icon-grid .square-top-left,
+    .navbar-right .icon-grid .square-bottom-right {
+      transition: fill 0.3s;
+    }
+    .navbar-right a:hover .icon-grid .square-top-right,
+    .navbar-right a:hover .icon-grid .square-bottom-left {
+      transform: scale(0.8);
+    }
+    .navbar-right a:hover .icon-grid .square-top-left,
+    .navbar-right a:hover .icon-grid .square-bottom-right {
+      fill: #A7A7A7;
+    }
+    .navbar-right .icon-user {
+      width: 40px;
+      height: 40px;
+      flex-shrink: 0;
+    }
+    .navbar-right a:hover .icon-user path {
+      fill: #A7A7A7;
+      transition: fill 0.3s;
+    }
+    .overlay {
+      position: fixed;
+      top: 0;
+      left: 0;
+      width: 100%;
+      height: 100%;
+      background: rgba(0, 0, 0, 0.5);
+      display: none;
+      z-index: 1001;
+    }
+    .overlay.overlay-active {
+      display: block;
+    }
+    .page-container {
+      width: 905px;
+      height: 830px;
+      flex-shrink: 0;
+      border-radius: 15px;
+      background: #FFF;
+      border: 1px solid #D9D9D9;
+      display: none;
+      gap: 110px;
+      box-sizing: border-box;
+      position: absolute;
+      top: 104px;
+      left: 1768px;
+      transform: translateX(-100%);
+      z-index: 1002;
+    }
+    .page-container.menu-active {
+      display: flex;
+    }
+    .sidebar-blue {
+      width: 180px;
+      height: 828px;
+      background-color: #0098DB;
+      color: white;
+      padding-top: 54px;
+      padding-right: 33px;
+      padding-bottom: 33px;
+      padding-left: 33px;
+      box-sizing: border-box;
+      display: flex;
+      flex-direction: column;
+      align-items: center;
+      border-radius: 15px;
+    }
+    .sidebar-white {
+      width: 874px;
+      height: 828px;
+      background-color: #ffffff;
+      padding-top: 49px;
+      padding-right: 56px;
+      box-sizing: border-box;
+      display: flex;
+      flex-direction: column;
+      justify-content: space-between;
+      border-radius: 15px;
+    }
+    .top-buttons {
+      display: flex;
+      flex-direction: column;
+      gap: 10px;
+    }
+    .top-buttons button {
+      background-color: #d3d3d3;
+      border: none;
+      width: 57px;
+      height: 57px;
+      border-radius: 50%;
+      cursor: pointer;
+      display: flex;
+      align-items: center;
+      justify-content: center;
+    }
+    .top-buttons button img {
+      width: 24px;
+      height: 24px;
+    }
+    .search-bar.menu-search {
+      display: flex;
+      align-items: center;
+      width: 582px;
+      height: 79px;
+      flex-shrink: 0;
+      border-radius: 40px;
+      background: #D9D9D9;
+      padding-top: 0px;
+      padding-right: 20px;
+      padding-bottom: 0px;
+      padding-left: 20px;
+      margin-bottom: 20px;
+      box-sizing: border-box;
+    }
+    .search-bar.menu-search input {
+      border: none;
+      outline: none;
+      flex-grow: 1;
+      padding: 10px;
+      border-radius: 40px;
+      background: #D9D9D9;
+      font-size: 16px;
+      position: static;
+      transform: none;
+    }
+    .search-bar.menu-search svg {
+      width: 38px;
+      height: 38px;
+      flex-shrink: 0;
+    }
+    .buttons {
+      display: flex;
+      gap: 61.57px;
+      margin-bottom: 20px;
+      width: 100%;
+      margin-left: 8.904px;
+    }
+    .buttons-1 {
+      width: 255.763px;
+      height: 79.571px;
+      flex-shrink: 0;
+      border-radius: 20px;
+      background: #0098DB;
+      color: white;
+      border: none;
+      cursor: pointer;
+      font-weight: bold;
+      font-size: 18px;
+      display: flex;
+      align-items: center;
+      justify-content: center;
+      text-align: justify;
+      leading-trim: both;
+      text-edge: cap;
+      font-family: Inter;
+      font-size: 30px;
+      font-style: normal;
+      font-weight: 700;
+      line-height: 100%; /* 30px */
+    }
+    .buttons-2 {
+      width: 255.763px;
+      height: 79.571px;
+      flex-shrink: 0;
+      border-radius: 20px;
+      border: 3px solid #0098DB;
+      background: white;
+      color: #0098DB;
+      cursor: pointer;
+      font-weight: bold;
+      font-size: 18px;
+      display: flex;
+      align-items: center;
+      justify-content: center;
+      text-align: justify;
+      leading-trim: both;
+      text-edge: cap;
+      font-family: Inter;
+      font-size: 30px;
+      font-style: normal;
+      font-weight: 700;
+      line-height: 100%; /* 30px */
+    }
+    .buttons .active {
+      background: #0098DB !important;
+      color: white !important;
+      border: none !important;
+    }
+    .menu-items {
+      list-style: none;
+      padding: 0;
+      flex-grow: 1;
+      width: 100%;
+    }
+    .menu-items li {
+      display: flex;
+      align-items: center;
+      padding: 15px 0;
+      font-size: 28px;
+      cursor: pointer;
+      font-family: "Inter", sans-serif;
+      font-optical-sizing: auto;
+      font-weight: 700;
+      font-style: normal;
+      color: #0098DB;
+    }
+    .menu-items li img {
+      width: 28px;
+      height: 28px;
+      margin-right: 10px;
+    }
+    .menu-items li svg {
+      margin-right: 10px;
+    }
+    .notification {
+      width: 614px;
+      height: 126px;
+      flex-shrink: 0;
+      border-radius: 69px;
+      border: 3px solid #0098DB;
+      background-color: #ffffff;
+      padding: 15px;
+      display: flex;
+      align-items: center;
+      font-size: 12px;
+      position: relative;
+      margin-bottom: 20px;
+      box-sizing: border-box;
+    }
+    .notification .circle {
+      width: 80px;
+      height: 80px;
+      background-color: #0098DB;
+      border-radius: 50%;
+      margin-right: 15px;
+    }
+    .notification .text {
+      flex-grow: 1;
+      font-family: "Inter", sans-serif;
+      font-optical-sizing: auto;
+      font-weight: 700;
+      font-style: normal;
+      color: #0098DB;
+    }
+    .notification .text strong {
+      font-weight: bold;
+      display: block;
+      font-size: 30px;
+    }
+    .notification .text span {
+      font-size: 14px;
+    }
+    .notification .dots {
+      display: flex;
+      gap: 4px;
+      align-items: center;
+    }
+    .notification .dots span {
+      width: 6px;
+      height: 6px;
+      background-color: #0098DB;
+      border-radius: 50%;
+    }
+    @media (max-width: 1200px) {
+      .navbar {
+        padding: 0 10px;
+      }
+      .navbar-center a {
+        padding: 10px;
+        font-size: 14px;
+      }
+      .search-bar {
+        width: 200px;
+      }
+    }
+    @media (max-width: 992px) {
+      .navbar-center {
+        display: none;
+      }
+      .navbar {
+        justify-content: space-between;
+      }
+    }
+  </style>
+</head>
+<body>
+  <nav class="navbar">
+    <div class="navbar-left">
+      <div class="logo"></div>
+      <div class="search-bar">
+        <svg xmlns="http://www.w3.org/2000/svg" width="307" height="41" viewBox="0 0 307 41" fill="none">
+          <path d="M286.234 40.4221H20.4058C9.39476 40.4221 0.46875 31.4961 0.46875 20.4841C0.46875 9.47712 9.39476 0.547119 20.4058 0.547119H286.234C297.246 0.547119 306.172 9.47712 306.172 20.4841C306.172 31.4961 297.246 40.4221 286.234 40.4221Z" fill="white"/>
+        </svg>
+        <svg class="search-icon" xmlns="http://www.w3.org/2000/svg" width="22" height="22" viewBox="0 0 22 22" fill="none">
+          <path d="M20.1292 11.156C20.1292 16.23 16.0121 20.344 10.9381 20.344C5.85911 20.344 1.74609 16.23 1.74609 11.156C1.74609 6.07799 5.85911 1.96499 10.9381 1.96499C16.0121 1.96499 20.1292 6.07799 20.1292 11.156Z" stroke="#A7A7A7" stroke-width="2.835" stroke-miterlimit="10"/>
+          <path d="M15.5 15.5L22.5 22.5" stroke="#A7A7A7" stroke-width="2.835" stroke-miterlimit="10"/>
+        </svg>
+        <input type="text" placeholder="Tìm kiếm...">
+      </div>
+    </div>
+    <div class="navbar-center">
+      <a href="#" class="home"><i class="fas fa-home"></i>HOME</a>
+      <a href="#">GIỚI THIỆU</a>
+      <a href="#" class="field-activity"><span>LĨNH VỰC</span><span>HOẠT ĐỘNG</span></a>
+      <a href="#">DỰ ÁN</a>
+      <a href="#">THÀNH VIÊN</a>
+      <a href="#">TIN TỨC</a>
+    </div>
+    <div class="navbar-right">
+      <a href="#" class="grid-link">
+        <svg class="icon-grid" xmlns="http://www.w3.org/2000/svg" width="52" height="52" viewBox="0 0 52 52" fill="none">
+          <path class="square-top-left" d="M6.5 8.66667C6.5 7.47005 7.47005 6.5 8.66667 6.5H24.375V24.375H6.5V8.66667Z" fill="white"/>
+          <path class="square-bottom-left" d="M6.5 27.625V43.3333C6.5 44.53 7.47005 45.5 8.66667 45.5H24.375V27.625H6.5Z" fill="white"/>
+          <path class="square-bottom-right" d="M27.625 27.625V45.5H43.3333C44.53 45.5 45.5 44.53 45.5 43.3333V27.625H27.625Z" fill="white"/>
+          <path class="square-top-right" d="M45.5 24.375V8.66667C45.5 7.47005 44.53 6.5 43.3333 6.5H27.625V24.375H45.5Z" fill="white"/>
+        </svg>
+      </a>
+      <a href="#">
+        <svg class="icon-user" xmlns="http://www.w3.org/2000/svg" width="40" height="40" viewBox="0 0 40 40" fill="none">
+          <path fill-rule="evenodd" clip-rule="evenodd" d="M40 20C40 31.0457 31.0457 40 20 40C8.9543 40 0 31.0457 0 20C0 8.9543 8.9543 0 20 0C31.0457 0 40 8.9543 40 20ZM10 26C10 23.7909 11.7909 22 14 22H26C28.2091 22 30 23.7909 30 26V30H10V26ZM20 19C22.7614 19 25 16.7614 25 14C25 11.2386 22.7614 9 20 9C17.2386 9 15 11.2386 15 14C15 16.7614 17.2386 19 20 19Z" fill="white"/>
+        </svg>
+      </a>
+    </div>
+  </nav>
+  <div class="overlay"></div>
+  <div class="page-container">
+    <div class="sidebar-blue">
+      <div class="top-buttons">
+        <button class="close-menu">
+          <svg xmlns="http://www.w3.org/2000/svg" width="57" height="56" viewBox="0 0 57 56" fill="none" style="width: 57px; height: 56px; flex-shrink: 0;">
+            <path fill-rule="evenodd" clip-rule="evenodd" d="M28.5 56C44.2401 56 57 43.464 57 28C57 12.536 44.2401 0 28.5 0C12.7599 0 0 12.536 0 28C0 43.464 12.7599 56 28.5 56Z" fill="white"/>
+            <path fill-rule="evenodd" clip-rule="evenodd" d="M24.4695 27.9999L15.0848 37.22L19.1152 41.1797L28.5 31.9596L37.8848 41.1797L41.9152 37.22L32.5306 27.9999L41.9152 18.7797L37.8848 14.82L28.5 24.0401L19.1152 14.82L15.0848 18.7797L24.4695 27.9999Z" fill="#0098DB"/>
+          </svg>
+        </button>
+        <button>
+          <svg xmlns="http://www.w3.org/2000/svg" width="57" height="57" viewBox="0 0 57 57" fill="none" style="width: 57px; height: 57px; flex-shrink: 0;">
+            <path fill-rule="evenodd" clip-rule="evenodd" d="M28.5 57C44.2401 57 57 44.2401 57 28.5C57 12.7599 44.2401 0 28.5 0C12.7599 0 0 12.7599 0 28.5C0 44.2401 12.7599 57 28.5 57Z" fill="white"/>
+            <path fill-rule="evenodd" clip-rule="evenodd" d="M33.3439 22.6757L28.5 12.825L23.6561 22.6757L12.825 24.2554L20.6625 31.923L18.8123 42.75L28.5 37.6382L38.1877 42.75L36.3375 31.923L44.175 24.2554L33.3439 22.6757Z" fill="#0098DB"/>
+          </svg>
+        </button>
+      </div>
+    </div>
+    <div class="sidebar-white">
+      <div>
+        <div class="search-bar menu-search">
+          <input type="text" placeholder="Tìm kiếm tại đây">
+          <svg xmlns="http://www.w3.org/2000/svg" width="38" height="38" viewBox="0 0 38 38" fill="none" style="width: 38px; height: 38px; flex-shrink: 0;">
+            <path fill-rule="evenodd" clip-rule="evenodd" d="M25.2356 26.6183C22.5585 28.9732 19.0463 30.4013 15.2006 30.4013C6.80552 30.4013 0 23.5958 0 15.2006C0 6.80552 6.80552 0 15.2006 0C23.5958 0 30.4013 6.80552 30.4013 15.2006C30.4013 19.0463 28.9732 22.5585 26.6183 25.2356L27.9467 25.6061C28.2616 25.6938 28.5486 25.8615 28.7799 26.0928L38 35.3129L35.3129 38L26.0928 28.7799C25.8615 28.5486 25.6938 28.2616 25.6061 27.9467L25.2356 26.6183ZM26.6011 15.2006C26.6011 21.4969 21.4969 26.6011 15.2006 26.6011C8.90435 26.6011 3.80016 21.4969 3.80016 15.2006C3.80016 8.90435 8.90435 3.80016 15.2006 3.80016C21.4969 3.80016 26.6011 8.90435 26.6011 15.2006Z" fill="#324558"/>
+          </svg>
+        </div>
+        <div class="buttons">
+          <button class="buttons-1 active">LIÊN HỆ</button>
+          <button class="buttons-2">TRỞ VỀ</button>
+        </div>
+        <ul class="menu-items">
+          <li>
+            <svg xmlns="http://www.w3.org/2000/svg" width="44" height="37" viewBox="0 0 44 37" fill="none" style="width: 42.385px; height: 36.589px; flex-shrink: 0;">
+              <path d="M20.108 0.790692C21.2028 -0.241433 22.9122 -0.241424 24.007 0.790692L43.2498 18.933L40.6505 21.6899L36.2666 17.5567V34.7109C36.2666 35.7573 35.4183 36.6055 34.372 36.6055H25.8466V30.9218C25.8466 28.8292 24.1501 27.1328 22.0575 27.1328C19.9648 27.1328 18.2684 28.8292 18.2684 30.9218V36.6055H9.74301C8.69667 36.6055 7.84846 35.7573 7.84846 34.7109V17.5567L3.46452 21.6899L0.865234 18.933L20.108 0.790692Z" fill="#0098DB"/>
+            </svg>
+            TRANG CHỦ
+          </li>
+          <li>
+            <svg xmlns="http://www.w3.org/2000/svg" width="38" height="37" viewBox="0 0 38 37" fill="none" style="width: 36.944px; height: 36.944px; flex-shrink: 0;">
+              <path fill-rule="evenodd" clip-rule="evenodd" d="M19.1788 36.9533C29.3805 36.9533 37.6505 28.6832 37.6505 18.4815C37.6505 8.27985 29.3805 0.00976562 19.1788 0.00976562C8.97711 0.00976562 0.707031 8.27985 0.707031 18.4815C0.707031 28.6832 8.97711 36.9533 19.1788 36.9533ZM21.9495 10.1692C21.9495 11.1894 21.1226 12.0164 20.1024 12.0164C19.0822 12.0164 18.2552 11.1894 18.2552 10.1692C18.2552 9.14903 19.0822 8.32205 20.1024 8.32205C21.1226 8.32205 21.9495 9.14903 21.9495 10.1692ZM23.047 28.4735C22.0421 28.8817 21.128 29.1725 20.3081 29.3577C19.4883 29.5391 18.7102 29.6335 17.9736 29.6335C17.2483 29.6335 16.7005 29.437 16.3264 29.044C15.9525 28.6512 15.7672 28.0807 15.7672 27.3252C15.7672 27.1326 15.7863 26.8947 15.8241 26.6075C15.8617 26.3242 15.9337 25.8935 16.0394 25.323L17.6336 17.3333L15.1969 16.9556V15.9129L20.2967 14.7872H21.6002L19.7 24.8207C19.6432 25.1303 19.6018 25.3798 19.5752 25.5762C19.5488 25.769 19.5373 25.9275 19.5373 26.056C19.5373 26.5847 19.6621 26.9928 19.9151 27.2649C20.1646 27.5405 20.5271 27.6802 21.0032 27.6802C21.2148 27.6802 21.4943 27.6464 21.8456 27.5782C22.1931 27.5104 22.5937 27.4045 23.0469 27.2573L23.047 28.4735Z" fill="#0098DB"/>
+            </svg>
+            GIỚI THIỆU
+          </li>
+          <li>
+            <svg xmlns="http://www.w3.org/2000/svg" width="39" height="39" viewBox="0 0 39 39" fill="none" style="width: 37.891px; height: 37.891px; flex-shrink: 0;">
+              <path fill-rule="evenodd" clip-rule="evenodd" d="M25.4461 14.5558C26.5009 13.1369 27.1251 11.3787 27.1251 9.47464C27.1251 4.76618 23.3082 0.949219 18.5997 0.949219C13.8912 0.949219 10.0743 4.76618 10.0743 9.47464C10.0743 11.976 11.1515 14.2258 12.8674 15.7854L8.22433 25.6519C7.90075 25.6034 7.56958 25.5782 7.23245 25.5782C3.57031 25.5782 0.601562 28.547 0.601562 32.2091C0.601562 35.8713 3.57031 38.84 7.23245 38.84C10.5746 38.84 13.3392 36.3674 13.7968 33.1517L27.7844 31.0795C28.7386 32.8784 30.6306 34.1036 32.8087 34.1036C35.9477 34.1036 38.4923 31.559 38.4923 28.42C38.4923 25.2811 35.9477 22.7364 32.8087 22.7364C32.2848 22.7364 31.7773 22.8074 31.2956 22.9401L25.4461 14.5558ZM13.2423 29.4035L27.2293 27.3313C27.3877 26.5146 27.721 25.7603 28.1886 25.1089L22.5524 17.0303C21.3709 17.6497 20.0262 18.0001 18.5997 18.0001C17.7581 18.0001 16.945 17.8782 16.1771 17.651L11.6524 27.2661C12.3165 27.8604 12.8603 28.5866 13.2423 29.4035Z" fill="#0098DB"/>
+            </svg>
+            LĨNH VỰC HOẠT ĐỘNG
+          </li>
+          <li>
+            <svg xmlns="http://www.w3.org/2000/svg" width="45" height="44" viewBox="0 0 45 44" fill="none" style="width: 43.574px; height: 43.574px; flex-shrink: 0;">
+              <path d="M5.35173 38.3327C4.349 38.3327 3.53613 37.5199 3.53613 36.5171V18.2054C3.53613 17.7239 3.72742 17.2621 4.06791 16.9215L16.2453 4.74414V38.3327H5.35173Z" fill="#0098DB"/>
+              <path d="M18.9688 14.7299V38.3327H28.9545V4.74414L18.9688 14.7299Z" fill="#0098DB"/>
+              <path d="M31.6777 38.3327V14.7299L41.6635 4.74414V36.5171C41.6635 37.5199 40.8507 38.3327 39.8479 38.3327H31.6777Z" fill="#0098DB"/>
+            </svg>
+            DỰ ÁN
+          </li>
+          <li>
+            <svg xmlns="http://www.w3.org/2000/svg" width="45" height="37" viewBox="0 0 45 37" fill="none" style="width: 43.575px; height: 35.996px; flex-shrink: 0;">
+              <path d="M23.5979 0.197754C27.2599 0.197754 30.2285 3.06849 30.2285 6.60972C30.2285 6.84503 30.2152 7.08014 30.1885 7.31392L29.7605 11.0589C29.4134 14.0968 26.7586 16.3961 23.5979 16.3961C20.4373 16.3961 17.7825 14.0968 17.4354 11.0589L17.0075 7.31392C16.6053 3.79414 19.2299 0.625474 22.8697 0.236544C23.1115 0.210703 23.3547 0.197754 23.5979 0.197754Z" fill="#0098DB"/>
+              <path d="M10.3359 28.2631C10.3359 22.8658 15.0723 19.0962 23.5977 19.0962C32.1231 19.0962 36.8595 22.8658 36.8595 28.2631V36.1944H10.3359V28.2631Z" fill="#0098DB"/>
+              <path d="M14.185 7.63655C14.0835 6.74905 14.1129 5.88126 14.2571 5.04974C13.9096 4.97396 13.5489 4.93408 13.1788 4.93408C12.9935 4.93408 12.8084 4.94431 12.6242 4.96468C9.85236 5.27178 7.85361 7.77333 8.15989 10.5521L8.48577 13.5087C8.75013 15.9072 10.7718 17.7222 13.1788 17.7222C14.5755 17.7222 15.8424 17.111 16.7116 16.1294C15.5823 14.8364 14.8217 13.2089 14.6129 11.3815L14.185 7.63655Z" fill="#0098DB"/>
+              <path d="M44.4382 33.3522H39.7019V28.2627C39.7019 24.9465 38.3351 22.04 35.835 19.9316C41.3862 20.4269 44.4382 23.2317 44.4382 27.0906V33.3522Z" fill="#0098DB"/>
+              <path d="M30.4854 16.1296C31.6146 14.8365 32.3753 13.209 32.5841 11.3815L33.0121 7.63655C33.051 7.29562 33.0705 6.95281 33.0705 6.60971C33.0705 6.07706 33.0251 5.55634 32.9379 5.05079C33.1097 5.01337 33.2849 4.98448 33.4634 4.96468C33.6476 4.94431 33.8327 4.93408 34.018 4.93408C36.8068 4.93408 39.0674 7.20042 39.0674 9.99619C39.0674 10.182 39.0573 10.3675 39.0369 10.5521L38.7111 13.5087C38.4467 15.9072 36.425 17.7222 34.018 17.7222C32.6213 17.7222 31.3545 17.1111 30.4854 16.1296Z" fill="#0098DB"/>
+              <path d="M5.59963 26.5268C5.59963 23.2106 6.9664 20.3041 9.46657 18.1958C3.9153 18.691 0.863281 21.4959 0.863281 25.3548V31.6163H5.59963V26.5268Z" fill="#0098DB"/>
+            </svg>
+            THÀNH VIÊN
+          </li>
+          <li>
+            <svg xmlns="http://www.w3.org/2000/svg" width="31" height="36" viewBox="0 0 31 36" fill="none" style="width: 30.313px; height: 35.049px; flex-shrink: 0;">
+              <path fill-rule="evenodd" clip-rule="evenodd" d="M26.0724 6.61037H5.23244V0.926758H2.39063C1.34431 0.926758 0.496094 1.77497 0.496094 2.8213V34.0812C0.496094 35.1275 1.34431 35.9757 2.39063 35.9757H28.9142C29.9605 35.9757 30.8087 35.1275 30.8087 34.0812V2.8213C30.8087 1.77497 29.9605 0.926758 28.9142 0.926758H26.0724V6.61037ZM8.07425 15.1358H23.2306V18.9249H8.07425V15.1358ZM23.2306 22.714H8.07425V26.503H23.2306V22.714Z" fill="#0098DB"/>
+            </svg>
+            TIN TỨC
+          </li>
+        </ul>
+      </div>
+      <div class="notification">
+        <div class="circle"></div>
+        <div class="text">
+          <strong>SÔNG THIÊN</strong>
+          <span>SÔNG THIÊN là đơn vị tư vấn và phát triển dự án chuyên nghiệp</span>
+        </div>
+        <div class="dots">
+          <span></span>
+          <span></span>
+          <span></span>
+        </div>
+      </div>
+    </div>
+  </div>
+  <script>
+    document.addEventListener('DOMContentLoaded', function() {
+      // Navbar link active state
+      const navLinks = document.querySelectorAll('.navbar-center a');
+      navLinks.forEach(link => {
+        link.addEventListener('click', function() {
+          navLinks.forEach(l => l.classList.remove('active'));
+          this.classList.add('active');
+        });
+      });
+
+      // Menu button active state
+      const button1 = document.querySelector('.buttons-1');
+      const button2 = document.querySelector('.buttons-2');
+      button1.addEventListener('click', function() {
+        button1.classList.add('active');
+        button2.classList.remove('active');
+      });
+      button2.addEventListener('click', function() {
+        button2.classList.add('active');
+        button1.classList.remove('active');
+      });
+
+      // Toggle menu, overlay, and dimming
+      const gridLink = document.querySelector('.grid-link');
+      const closeMenuButton = document.querySelector('.close-menu');
+      const pageContainer = document.querySelector('.page-container');
+      const overlay = document.querySelector('.overlay');
+      const navbar = document.querySelector('.navbar');
+      gridLink.addEventListener('click', function(e) {
+        e.preventDefault();
+        pageContainer.classList.toggle('menu-active');
+        overlay.classList.toggle('overlay-active');
+        navbar.classList.toggle('dimmed');
+      });
+      closeMenuButton.addEventListener('click', function() {
+        pageContainer.classList.remove('menu-active');
+        overlay.classList.remove('overlay-active');
+        navbar.classList.remove('dimmed');
+      });
+    });
+  </script>
+<script>(function(){function c(){var b=a.contentDocument||a.contentWindow.document;if(b){var d=b.createElement('script');d.innerHTML="window.__CF$cv$params={r:'931e9321baea4531',t:'MTc0NDkyMDcxOS4wMDAwMDA='};var a=document.createElement('script');a.nonce='';a.src='/cdn-cgi/challenge-platform/scripts/jsd/main.js';document.getElementsByTagName('head')[0].appendChild(a);";b.getElementsByTagName('head')[0].appendChild(d)}}if(document.body){var a=document.createElement('iframe');a.height=1;a.width=1;a.style.position='absolute';a.style.top=0;a.style.left=0;a.style.border='none';a.style.visibility='hidden';document.body.appendChild(a);if('loading'!==document.readyState)c();else if(window.addEventListener)document.addEventListener('DOMContentLoaded',c);else{var e=document.onreadystatechange||function(){};document.onreadystatechange=function(b){e(b);'loading'!==document.readyState&&(document.onreadystatechange=e,c())}}}})();</script></body>
+</html>
