@@ -1,17 +1,17 @@
-(function autoScaleBot() {
+function scalePage() {
     const DESIGN_WIDTH = 1920;
+    const scaleRatio = window.innerWidth / DESIGN_WIDTH;
   
-    function scalePage() {
-      const scaleRatio = window.innerWidth / DESIGN_WIDTH;
+    const root = document.getElementById('scaled-root');
+    if (root) {
+      root.style.transform = `scale(${scaleRatio})`;
+      root.style.transformOrigin = 'top left';
+      root.style.width = `${DESIGN_WIDTH}px`;
   
-      const body = document.body;
-      body.style.transform = `scale(${scaleRatio})`;
-      body.style.transformOrigin = 'top left';
-      body.style.width = `${DESIGN_WIDTH}px`;
-      body.style.overflowX = 'hidden';
+      // ✅ Tính lại chiều cao thật của phần tử scale
+      const realHeight = root.scrollHeight * scaleRatio;
+      document.body.style.height = `${realHeight}px`;
+      document.body.style.overflowX = 'hidden';
     }
-  
-    window.addEventListener('load', scalePage);
-    window.addEventListener('resize', scalePage);
-  })();
+  }
   
