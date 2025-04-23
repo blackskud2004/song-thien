@@ -838,14 +838,7 @@
       background: #D9D9D9;
       margin-right: 34px; /* Khoảng cách giữa các ô vuông */
     }
-    @keyframes slide {
-      0% {
-        transform: translateX(0);
-      }
-      100% {
-        transform: translateX(calc(-1 * (230px * 7 + 34px * 6))); /* Dịch chuyển hết chiều rộng của 7 ô */
-      }
-    }
+
     .footer {
       width: 100%;
       max-width: 1920px;
@@ -1722,7 +1715,7 @@
           this.classList.add('active');
         });
       });
-
+    
       // Menu button active state
       const button1 = document.querySelector('.buttons-1');
       const button2 = document.querySelector('.buttons-2');
