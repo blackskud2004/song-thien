@@ -17,6 +17,10 @@
       font-style: normal;
       background: #f0f0f0;
       box-sizing: border-box;
+      overflow-x: hidden;
+      width: 100%;
+      margin: 0;
+      padding: 0;
     }
     .navbar {
       background-color: #0098D8;
@@ -34,6 +38,7 @@
       z-index: 1000;
       transition: opacity 0.3s;
       padding: 0 20px;
+      box-sizing: border-box;
     }
     .navbar.dimmed {
       opacity: 0.6;
@@ -442,9 +447,36 @@
       .search-bar {
         width: 200px;
       }
-      .news-box-group {
-        flex-wrap: wrap;
-        justify-content: center;
+      .new-frame {
+        width: 100%;
+        max-width: 100%;
+      }
+      .news-frame {
+        width: 600px;
+        height: 70px;
+        left: calc(25% + 450px + 15px); /* Điều chỉnh dựa trên square-box */
+        top: 1050px;
+      }
+      .news-text {
+        width: 200px;
+        height: 45px;
+        font-size: 35px;
+      }
+      .news-icon {
+        width: 20px;
+        height: 25px;
+      }
+      .news-title {
+        width: 500px;
+        height: 90px;
+        font-size: 24px;
+        top: 1120px; /* Điều chỉnh dựa trên news-frame */
+      }
+      .news-description {
+        width: 450px;
+        height: 160px;
+        font-size: 18px;
+        top: 1210px; /* Điều chỉnh dựa trên news-title */
       }
     }
     @media (max-width: 992px) {
@@ -454,748 +486,799 @@
       .navbar {
         justify-content: space-between;
       }
+      .news-frame {
+        width: 400px;
+        height: 60px;
+        left: calc(25% + 350px + 10px); /* Điều chỉnh dựa trên square-box */
+        top: 1000px;
+      }
+      .news-text {
+        width: 150px;
+        height: 40px;
+        font-size: 30px;
+      }
+      .news-icon {
+        width: 18px;
+        height: 22px;
+      }
+      .news-title {
+        width: 350px;
+        height: 70px;
+        font-size: 20px;
+        top: 1060px; /* Điều chỉnh dựa trên news-frame */
+        left: calc(25% + 350px + 10px); /* Cùng left với news-frame */
+      }
+      .news-description {
+        width: 350px;
+        height: 140px;
+        font-size: 16px;
+        top: 1130px; /* Điều chỉnh dựa trên news-title */
+        left: calc(25% + 350px + 10px); /* Cùng left với news-frame */
+      }
     }
-    .song-thien{
+
+    .new-frame {
+        width: 100%;
+        max-width: 1920px;
+        height: 965px;
+        flex-shrink: 0;
+        background: #E5F4FB;
+        position: absolute;
+        top: 174px; /* 104px (chiều cao navbar) + 70px (khoảng cách) */
+        left: 50%;
+        transform: translateX(-50%);
+        z-index: 1; /* Đảm bảo dưới navbar */
+      }
+
+      .sub-frame {
+        width: 1787px;
+        height: 714px;
+        flex-shrink: 0;
+        border-radius: 71px;
+        background: rgba(0, 0, 0, 0.15);
+        position: absolute;
+        top: 50%;
+        left: 50%;
+        transform: translate(-50%, -50%);
+      }
+
+      .top-frame {
+        width: 538px;
+        height: 96px;
+        flex-shrink: 0;
+        border-radius: 30px;
+        background: #0098DB;
+        position: absolute;
+        top: -48px; /* Nửa chiều cao của top-frame để nằm trên đỉnh sub-frame */
+        left: 50%;
+        transform: translateX(-50%);
+        display: flex;
+        justify-content: center;
+        align-items: center;
+      }
+
+      .intro-text {
+        display: flex;
+        width: 417px;
+        height: 42px;
+        flex-direction: column;
+        justify-content: center;
+        flex-shrink: 0;
+        color: #FFF;
+        text-align: center;
+        font-family: Montserrat;
+        font-size: 50px;
+        font-style: normal;
+        font-weight: 800;
+        line-height: 100%; /* 50px */
+      }
+
+      .bottom-text {
+        display: flex;
+        width: 857px;
+        height: 303px;
+        flex-direction: column;
+        justify-content: flex-end;
+        flex-shrink: 0;
+        color: #000;
+        text-align: justify;
+        font-family: Inter;
+        font-size: 36px;
+        font-style: normal;
+        font-weight: 700;
+        line-height: 100%; /* 36px */
+        position: absolute;
+        bottom: 520px; /* -303px (chiều cao bottom-text) - 60px (khoảng cách) */
+        left: 66%;
+        transform: translateX(-50%);
+      }
+
+      .description-text {
+        display: flex;
+        width: 852px;
+        height: 383px;
+        flex-direction: column;
+        justify-content: flex-end;
+        flex-shrink: 0;
+        position: absolute;
+        bottom: 110px; /* -383px (chiều cao description-text) - 60px (khoảng cách) - 363px (khoảng cách từ bottom-text) */
+        left: 66%;
+        transform: translateX(-50%);
+        color: #000;
+        font-family: Inter;
+        font-size: 20px;
+        font-style: normal;
+        font-weight: 500;
+        line-height: 100%; /* 20px */
+        text-align: justify;
+      }
+
+      .song-thien {
+        font-weight: 600;
+        color: #000;
+        font-family: Inter;
+        font-size: 20px;
+        font-style: normal;
+        line-height: 100%; /* 20px */
+      }
+      .triangle-2 {
+        width: 353px;
+        height: 500px;
+        position: absolute;
+        top: 20%;
+        left: 23%;
+        transform: rotate(-381.66deg);
+      }
+      .triangle-1 {
+        width: 367px;
+        height: 500px;
+        position: absolute;
+        top: 13%;
+        left: 4%;
+        transform: rotate(157.44deg);
+      }
+      .square-box {
+        width: 553px;
+        height: 422px;
+        flex-shrink: 0;
+        background: #D9D9D9;
+        position: absolute;
+        top: 1085px; /* 965px (chiều cao new-frame) + 120px (khoảng cách) */
+        left: 28%;
+        transform: translateX(-50%);
+      }
+      .news-frame {
+        width: 610px;
+        height: 76px;
+        flex-shrink: 0;
+        border-radius: 10px;
+        background: linear-gradient(90deg, #0098DB 0%, #FFF 85.1%);
+        position: absolute;
+        top: 1085px; /* Cùng top với square-box */
+        left: 65%; /* Bên phải square-box */
+        transform: translateX(-50%);
+        display: flex;
+        align-items: center;
+        justify-content: center;
+        gap: 10px;
+      }
+      .news-icon {
+        width: 23px;
+        height: 29px;
+        flex-shrink: 0;
+        fill: #FFF;
+        margin-left: -50%;
+      }
+      .news-text {
+        display: flex;
+        width: 234px;
+        height: 52px;
+        flex-direction: column;
+        justify-content: center;
+        flex-shrink: 0;
+        color: #FFF;
+        text-align: center;
+        font-family: Montserrat;
+        font-size: 40px;
+        font-style: normal;
+        font-weight: 800;
+        line-height: 100%; /* 40px */
+      }
+      .news-title {
+        display: flex;
+        width: 618px;
+        height: 110px;
+        flex-direction: column;
+        justify-content: flex-end;
+        flex-shrink: 0;
+        color: #000;
+        text-align: justify;
+        font-family: Inter;
+        font-size: 27px;
+        font-style: normal;
+        font-weight: 700;
+        line-height: 125%; /* 27px */
+        position: absolute;
+        top: 1135px; /* 1085px (top của news-frame) + 76px (chiều cao news-frame) */
+        left: 65%;
+        transform: translateX(-50%);
+      }
+      .news-description {
+        display: flex;
+        width: 553px;
+        height: 194px;
+        flex-direction: column;
+        justify-content: flex-end;
+        flex-shrink: 0;
+        color: #000;
+        text-align: justify;
+        font-family: Inter;
+        font-size: 20px;
+        font-style: normal;
+        font-weight: 500;
+        line-height: 100%; /* 20px */
+        position: absolute;
+        top: 1315px; /* 1161px (top của news-title) + 110px (chiều cao news-title) */
+        left: 63%;
+        transform: translateX(-50%);
+      }
+
+
+      .square-box2 {
+        width: 553px;
+        height: 422px;
+        flex-shrink: 0;
+        background: #D9D9D9;
+        position: absolute;
+        top: 170%; /* 965px (chiều cao new-frame) + 120px (khoảng cách) */
+        left: 63%;
+        transform: translateX(-50%);
+      }
+      .news-frame2 {
+        width: 610px;
+        height: 76px;
+        flex-shrink: 0;
+        border-radius: 10px;
+        background: linear-gradient(90deg, #0098DB 0%, #FFF 85.1%);
+        position: absolute;
+        top: 170%; /* Cùng top với square-box */
+        left: 29%; /* Bên phải square-box */
+        transform: translateX(-50%);
+        display: flex;
+        align-items: center;
+        justify-content: center;
+        gap: 10px;
+      }
+      .news-icon2 {
+        width: 23px;
+        height: 29px;
+        flex-shrink: 0;
+        fill: #FFF;
+        margin-left: -50%;
+      }
+      .news-text2 {
+        display: flex;
+        width: 234px;
+        height: 52px;
+        flex-direction: column;
+        justify-content: center;
+        flex-shrink: 0;
+        color: #FFF;
+        text-align: center;
+        font-family: Montserrat;
+        font-size: 40px;
+        font-style: normal;
+        font-weight: 800;
+        line-height: 100%; /* 40px */
+      }
+      .news-title2 {
+        display: flex;
+        width: 618px;
+        height: 110px;
+        flex-direction: column;
+        justify-content: flex-end;
+        flex-shrink: 0;
+        color: #000;
+        text-align: justify;
+        font-family: Inter;
+        font-size: 27px;
+        font-style: normal;
+        font-weight: 700;
+        line-height: 125%; /* 27px */
+        position: absolute;
+        top: 176%; /* 1085px (top của news-frame) + 76px (chiều cao news-frame) */
+        left: 30%;
+        transform: translateX(-50%);
+      }
+      .news-description2 {
+        display: flex;
+        width: 553px;
+        height: 194px;
+        flex-direction: column;
+        justify-content: flex-end;
+        flex-shrink: 0;
+        color: #000;
+        text-align: justify;
+        font-family: Inter;
+        font-size: 20px;
+        font-style: normal;
+        font-weight: 500;
+        line-height: 100%; /* 20px */
+        position: absolute;
+        top: 194%; /* 1161px (top của news-title) + 110px (chiều cao news-title) */
+        left: 28%;
+        transform: translateX(-50%);
+      }
+
+      .gt-frame {
+        width: 100%;
+        max-width: 1920px;
+        height: 785px;
+        background: #1B97D4;
+        position: absolute;
+        top: 2222px;
+        left: 50%;
+        transform: translateX(-50%);
+      }
+
+      .gt-top-frame {
+        width: 566px;
+        height: 96px;
+        flex-shrink: 0;
+        border-radius: 30px;
+        background: #FFF;
+        position: absolute;
+        top: 100px;
+        left: 50%;
+        transform: translateX(-50%);
+      }
+
+      .gt-top-text {
+        display: flex;
+        width: 495px;
+        height: 42px;
+        flex-direction: column;
+        justify-content: flex-end;
+        flex-shrink: 0;
+        color: #1B97D4;
+        text-align: justify;
+        font-family: Montserrat;
+        font-size: 50px;
+        font-style: normal;
+        font-weight: 800;
+        line-height: 100%;
+        position: absolute;
+        top: 50%;
+        left: 50%;
+        transform: translate(-50%, -50%);
+      }
+
+      .gt-middle-frame {
+        width: 719px;
+        height: 60px;
+        flex-shrink: 0;
+        border-radius: 10px;
+        background: linear-gradient(90deg, #0098DB 0%, #00699C 50.48%, #1B97D4 100%);
+        position: absolute;
+        top: 220px;
+        left: 50%;
+        transform: translateX(-50%);
+      }
+
+      .gt-middle-text {
+        width: 719px;
+        height: 60px;
+        flex-shrink: 0;
+        color: #FFF;
+        text-align: center;
+        font-family: Montserrat;
+        font-size: 32px;
+        font-style: normal;
+        font-weight: 800;
+        line-height: 100%;
+        position: absolute;
+        top: 73%;
+        left: 50%;
+        transform: translate(-50%, -50%);
+      }
+
+      .gt-value-frame-1 {
+        width: 238px;
+        height: 360px;
+        flex-shrink: 0;
+        border-radius: 16px;
+        background: #FFF;
+        position: absolute;
+        top: 350px;
+        left: 21%;
+        transform: translateX(-50%);
+      }
+
+      .gt-value-frame-2 {
+        width: 238px;
+        height: 360px;
+        flex-shrink: 0;
+        border-radius: 16px;
+        background: #FFF;
+        position: absolute;
+        top: 350px;
+        left: 35%;
+        transform: translateX(-50%);
+      }
+
+      .gt-value-frame-3 {
+        width: 238px;
+        height: 360px;
+        flex-shrink: 0;
+        border-radius: 16px;
+        background: #FFF;
+        position: absolute;
+        top: 350px;
+        left: 49%;
+        transform: translateX(-50%);
+      }
+
+      .gt-value-frame-4 {
+        width: 238px;
+        height: 360px;
+        flex-shrink: 0;
+        border-radius: 16px;
+        background: #FFF;
+        position: absolute;
+        top: 350px;
+        left: 63%;
+        transform: translateX(-50%);
+      }
+
+      .gt-value-frame-5 {
+        width: 238px;
+        height: 360px;
+        flex-shrink: 0;
+        border-radius: 16px;
+        background: #FFF;
+        position: absolute;
+        top: 350px;
+        left: 77%;
+        transform: translateX(-50%);
+      }
+
+      .gt-value-inner-frame {
+        width: 198px;
+        height: 216px;
+        flex-shrink: 0;
+        border-radius: 12px;
+        background: #1B97D4;
+        position: absolute;
+        top: 20px;
+        left: 50%;
+        transform: translateX(-50%);
+      }
+
+      .gt-value-text1 {
+        display: flex;
+        width: 208px;
+        height: 118px;
+        flex-direction: column;
+        justify-content: flex-end;
+        flex-shrink: 0;
+        color: #000;
+        text-align: center;
+        font-family: Inter;
+        font-size: 20px;
+        font-style: normal;
+        font-weight: 700;
+        line-height: 100%;
+        position: absolute;
+        top: 150px;
+        left: 50%;
+        transform: translateX(-50%);
+      }
+
+      .gt-value-text2 {
+        display: flex;
+        width: 200px;
+        height: 62px;
+        flex-direction: column;
+        justify-content: flex-end;
+        flex-shrink: 0;
+        color: #000;
+        text-align: justify;
+        font-family: Inter;
+        font-size: 12px;
+        font-style: normal;
+        font-weight: 500;
+        line-height: 100%;
+        position: absolute;
+        top: 275px;
+        left: 50%;
+        transform: translateX(-50%);
+      }
+
+      .new-section-frame {
+        width: 100%;
+        max-width: 1920px;
+        height: 1487px;
+        flex-shrink: 0;
+        background: #E5F4FB;
+        position: absolute;
+        top: 3100px;
+        left: 50%;
+        transform: translateX(-50%);
+        box-sizing: border-box;
+      }
+
+      .partner-frame {
+        width: 100%;
+        max-width: 1924px;
+        height: 1487px;
+        flex-shrink: 0;
+        background: #E5F4FB;
+        position: absolute;
+        top: 0;
+        left: 50%;
+        transform: translateX(-50%);
+      }
+
+      .partner-text {
+        display: flex;
+        width: 710px;
+        height: 42px;
+        flex-direction: column;
+        justify-content: center;
+        flex-shrink: 0;
+        color: #FFF;
+        text-align: center;
+        font-family: Montserrat;
+        font-size: 50px;
+        font-style: normal;
+        font-weight: 800;
+        line-height: 100%;
+        position: absolute;
+        top: 50%;
+        left: 50%;
+        transform: translate(-50%, -50%);
+      }
+
+      .partner-title-frame {
+        width: 538px;
+        height: 96px;
+        flex-shrink: 0;
+        border-radius: 30px;
+        border: 3px solid #1B97D4;
+        background: #1B97D4;
+        position: absolute;
+        top: 100px;
+        left: 50%;
+        transform: translateX(-50%);
+        display: flex;
+        justify-content: center;
+        align-items: center;
+      }
+
+      .partner-squares {
+        position: absolute;
+        top: 300px;
+        left: 49%;
+        transform: translateX(-50%);
+        display: flex;
+        flex-direction: column;
+        gap: 30px;
+        width: 960px; /* (180px * 5) + (20px * 4) */
+      }
+
+      .partner-square-row {
+        display: flex;
+        gap: 20px;
+      }
+
+      .partner-square {
+        width: 180px;
+        height: 180px;
+        flex-shrink: 0;
+        background: #9D9D9D;
+      }
+
+      .partner-button {
+        width: 281px;
+        height: 61px;
+        flex-shrink: 0;
+        border-radius: 17px;
+        background: #707070;
+        position: absolute;
+        top: 750px;
+        left: 50%;
+        transform: translateX(-50%);
+        display: flex;
+        align-items: center;
+        justify-content: center;
+        gap: 10px;
+        cursor: pointer;
+      }
+
+      .partner-button-text {
+        display: flex;
+        width: 209px;
+        height: 40px;
+        flex-direction: column;
+        justify-content: center;
+        flex-shrink: 0;
+        color: #FFF;
+        text-align: center;
+        font-family: Montserrat;
+        font-size: 30px;
+        font-style: normal;
+        font-weight: 700;
+        line-height: 100%;
+      }
+
+      .partner-button-icon {
+        width: 30px;
+        height: 30px;
+        flex-shrink: 0;
+      }
+
+      .partner-bottom-frame {
+        width: 1033px;
+        height: 228px;
+        flex-shrink: 0;
+        background: #1B97D4;
+        position: absolute;
+        top: 926px;
+        left: 50%;
+        transform: translateX(-50%);
+      }
+
+      .partner-gradient-bar {
+        width: 1033px;
+        height: 7px;
+        flex-shrink: 0;
+        background: linear-gradient(90deg, #1B97D4 0%, #FFF 100%);
+        position: absolute;
+        top: 1190px;
+        left: 50%;
+        transform: translateX(-50%);
+      }
+
+      .partner-description {
+        display: flex;
+        width: 1035px;
+        height: 179px;
+        flex-direction: column;
+        justify-content: flex-end;
+        flex-shrink: 0;
+        color: #000;
+        text-align: justify;
+        font-family:  sans-serif;
+        font-size: 20px;
+        font-style: normal;
+        font-weight: 400;
+        line-height: 100%;
+        position: absolute;
+        top: 1170px;
+        left: 50%;
+        transform: translateX(-50%);
+      }
+
+
+    .footer {
       width: 100%;
-      max-width: 1920px;
-      height: 560px;
-      background-color: #E5F4FB;
-      position: absolute;
-      top: 695px;
-      left: 50%;
-      transform: translateX(-50%);
-      display: flex;
-      justify-content: center;
-      align-items: center;
-      gap: 50px;
-    }
-    .icon-container {
-            position: relative;
-            width: 638.16px;
-            height: 506.78px;
-            cursor: pointer;
-        }
-        .diamond {
-            position: absolute;
-            transform: rotate(45deg);
-            transition: all 0.3s ease;
-        }
-        .diamond-front {
-          width: 344.22px;
-          height: 344.22px;
-          top: 100px;
-          left: 111px;
-            background-color: #0098DB;
-            z-index: 3;
-        }
-        .diamond-back-left {
-            background-color: #4b4b4b;
-            width: 276.64px;
-            height: 276.64px;
-            top: 133px;
-            left: 10px;
-            z-index: 2;
-        }
-        .diamond-back-right {
-            background-color: #4b4b4b;
-            width: 276.64px;
-            height: 276.64px;
-            top: 133px;
-            left: 280px;
-            z-index: 2;
-        }
-        .icon-container:hover .diamond-back-left {
-            background-color: #8c8c8c;
-            left: -20px;
-        }
-        .icon-container:hover .diamond-back-right {
-            background-color: #8c8c8c;
-            left: 310px;
-        }
-        .ve-song-thien {
-            width: 638.16px;
-            height: 506.78px;
-            display: flex;
-            align-items: center;
-            font-size: 18px;
-            line-height: 1.5;
-            color: #324558;
-            font-weight: 400;
-            flex-direction: column;
-            gap: 20px;
-        }
-        .ve-song-thien .title-frame {
-            width: 100%;
-            padding: 20px;
-            border-radius: 30px;
-            border: 3px solid #0098DB;
-            background: #FFF;
-            box-sizing: border-box;
-            display: flex;
-            justify-content: center;
-            align-items: center;
-        }
-        .ve-song-thien .title-text {
-            display: flex;
-            width: 100%;
-            height: 42px;
-            flex-direction: row;
-            justify-content: center;
-            align-items: center;
-            flex-shrink: 0;
-            color: #0098DB;
-            text-align: center;
-            font-family: Montserrat;
-            font-size: 50px;
-            font-style: normal;
-            font-weight: 800;
-            line-height: 100%;
-        }
-        .ve-song-thien span {
-            display: flex;
-            width: 534px;
-            height: 390px;
-            flex-direction: column;
-            justify-content: center;
-            flex-shrink: 0;
-            text-align: justify;
-            font-family: sans-serif;
-            font-size: 14px;
-            font-style: normal;
-            font-weight: 200;
-            line-height: 100%; /* Increased from 100% to 180% */
-
-            letter-spacing: 0.2px;
-        }
-
-
-        .linh-vuc-kinh-doanh{
-          width: 100%;
-          max-width: 1920px;
-          height: 654px;
-          background-color: #E5F4FB;
-          position: absolute;
-          top: 1310px;
-          left: 50%;
-          transform: translateX(-50%);
-          display: flex;
-          justify-content: center;
-          align-items: center;
-          gap: 50px;
-        }
-        
-
-    .blue-frame {
-      width: 100%;
-      max-width: 1920px;
-      height: 528px;
+      max-width: 100%;
+      height: auto;
+      min-height: 321px;
       flex-shrink: 0;
-      background: #0098DB;
-      position: absolute;
-      top: 134px;
-      left: 50%;
-      transform: translateX(-50%);
+      background: #023E8A;
+      top: 485%;
+      position: relative;
+      overflow: hidden;
+      
     }
-    .xem-them-button {
-  width: 184px;
-  height: 61px;
-  background: #707070;
-  display: flex;
-  align-items: center;
-  justify-content: center;
-  border-radius: 17px;
-  box-sizing: border-box;
-  margin-top: -35px;
-  cursor: pointer;
-}
 
-.xem-them-button span {
-  width: 120px;
-  height: 23px;
-  display: flex;
-  justify-content: center;
-  color: #FFF;
-  text-align: center;
-  font-family: Montserrat, sans-serif;
-  font-size: 20px;
-  font-style: normal;
-  font-weight: 700;
-  line-height: 100%;
-  margin-left: 17px;
-}
+    .footer-content {
+      display: flex;
+      justify-content: space-between;
+      position: relative;
+      top: 70px;
+      width: 100%;
+      max-width: 100%;
+      margin: 0 auto;
+      padding: 0 20px;
+      box-sizing: border-box;
+      flex-wrap: wrap;
+    }
 
-.xem-them-button svg {
-  width: 22px;
-  height: 22px;
-  flex-shrink: 0;
-  margin-left: 10px;
-}
-.business-title-box {
-  width: 731px;
-  height: 96px;
-  flex-shrink: 0;
-  border-radius: 30px;
-  border: 3px solid #0098DB;
-  background: #FFF;
-  display: flex;
-  justify-content: center;
-  align-items: center;
-  margin-top: -2%;
-  margin-left: 18%;
-}
+    .footer-text-wrapper {
+      width: 25%;
+      display: flex;
+      flex-direction: column;
+      align-items: flex-start;
+      padding: 0 15px;
+      box-sizing: border-box;
+    }
 
-.business-title-text {
-  display: flex;
-  width: 710px;
-  height: 42px;
-  flex-direction: column;
-  justify-content: flex-end;
-  flex-shrink: 0;
-  color: #0098DB;
-  text-align: center;
-  font-family: Montserrat, sans-serif;
-  font-size: 50px;
-  font-style: normal;
-  font-weight: 800;
-  line-height: 100%;
-}
-.business-image-group {
-  display: flex;
-  gap: 30px;
-  margin-top: 50px;
-  justify-content: center;
-  margin-left: -2%;
-}
+    .footer-text {
+      display: flex;
+      width: 438px;
+      height: 29px;
+      flex-direction: column;
+      justify-content: center;
+      flex-shrink: 0;
+      color: #FFF;
+      font-family: Montserrat;
+      font-size: 25px;
+      font-style: normal;
+      font-weight: 800;
+      line-height: 120%;
+      text-align: left;
+    }
 
-.business-box {
-  width: 218px;
-  height: 384px;
-  flex-shrink: 0;
-  border-radius: 26px;
-  background: #0098DB;
-}
-.inner-box {
-  width: 175px;
-  height: 95px;
-  flex-shrink: 0;
-  border-radius: 14px;
-  background: #FFF;
-  margin-top: 120%;
-  margin-left: 10%;
-  display: flex;
-  flex-direction: column;
-  align-items: center;
-  justify-content: center;
-  padding: 5px;
-  box-sizing: border-box;
-}
+    .footer-underline {
+      width: 200px;
+      height: 4px;
+      flex-shrink: 0;
+      background: #FFF;
+      margin-top: 10px;
+    }
 
-.inner-title {
-  color: #0098DB;
-  text-align: center;
-  font-family: "Montserrat Subrayada", sans-serif;
-  font-size: 15px;
-  font-style: normal;
-  font-weight: 700;
-  line-height: 100%;
-  margin-bottom: 2px;
-}
+    .contact-info {
+      display: flex;
+      flex-direction: column;
+      align-items: flex-start;
+      gap: 14px;
+      margin-top: 50px;
+    }
 
-.underline {
-  width: 108px;
-  height: 2px;
-  background: #0098DB;
-  margin-bottom: 5px;
-}
+    .contact-item {
+      display: flex;
+      align-items: center;
+      gap: 4px;
+      width: 100%;
+    }
 
-.inner-desc {
-  color: #0098DB;
-  text-align: center;
-  font-family: Montserrat, sans-serif;
-  font-size: 8px;
-  font-style: normal;
-  font-weight: 500;
-  line-height: 100%;
-  margin-top: 10px;
-}
-.new-frame {
-  width: 100%;
-  max-width: 1920px;
-  height: 1484px;
-  flex-shrink: 0;
-  background: #E5F4FB;
-  position: absolute;
-  top: 2004px;
-  left: 50%;
-  transform: translateX(-50%);
-  display: flex;
-  justify-content: center;
-  align-items: flex-start;
-}
+    .contact-logo {
+      flex-shrink: 0;
+    }
 
-.project-title-box {
-  width: 731px;
-  height: 96px;
-  flex-shrink: 0;
-  border-radius: 30px;
-  border: 3px solid #0098DB;
-  background: #FFF;
-  display: flex;
-  justify-content: center;
-  align-items: center;
-  position: absolute;
-  top: 20px;
-  left: 50%;
-  transform: translateX(-50%);
-}
+    .contact-logo.phone {
+      width: 24px;
+      height: 25px;
+    }
 
-.project-title-text {
-  display: flex;
-  width: 710px;
-  height: 42px;
-  flex-direction: column;
-  justify-content: flex-end;
-  flex-shrink: 0;
-  color: #0098DB;
-  text-align: center;
-  font-family: Montserrat, sans-serif;
-  font-size: 50px;
-  font-style: normal;
-  font-weight: 800;
-  line-height: 100%;
-}
+    .contact-logo.website {
+      width: 24px;
+      height: 25px;
+    }
 
-.project-image-group {
-  display: flex;
-  flex-wrap: wrap;
-  gap: 30px;
-  justify-content: center;
-  position: absolute;
-  top: 236px;
-  width: 100%;
-  max-width: 1218px; /* 386px * 3 + 30px * 2 = 1218px */
-}
+    .contact-logo.email {
+      width: 25px;
+      height: 20px;
+    }
 
-.project-box {
-  width: 386px;
-  height: 528px;
-  flex-shrink: 0;
-  border-radius: 30px;
-  background: #0098DB;
-  display: flex;
-  flex-direction: column; /* Xếp dọc để chứa inner-project-box và project-text */
-  justify-content: center; /* Căn giữa dọc */
-  align-items: center; /* Căn giữa ngang */
-  gap: 20px; /* Khoảng cách giữa inner-project-box và project-text */
-}
+    .contact-text {
+      display: flex;
+      width: 100%;
+      height: auto;
+      flex-direction: column;
+      justify-content: flex-end;
+      flex-shrink: 0;
+      color: #FFF;
+      font-family: Montserrat;
+      font-size: 15px;
+      font-style: normal;
+      font-weight: 600;
+      line-height: 115%;
+    }
 
-.inner-project-box {
-  width: 328px;
-  height: 311px;
-  flex-shrink: 0;
-  border-radius: 30px;
-  background: #FFF;
-  box-shadow: 5px 5px 15.1px 0px rgba(0, 0, 0, 0.61);
-
-}
-
-
-.project-text {
-  display: flex;
-  width: 328px;
-  height: 56px;
-  flex-direction: column;
-  justify-content: flex-end;
-  flex-shrink: 0;
-  color: #FFF;
-  text-align: center;
-  font-family: Montserrat, sans-serif;
-  font-size: 30px;
-  font-style: normal;
-  font-weight: 800;
-  line-height: 100%; /* 30px */
-}
-.project-button-box {
-  width: 328px;
-  height: 68px;
-  flex-shrink: 0;
-  border-radius: 20px;
-  background: #FFF;
-  display: flex;
-  justify-content: center;
-  align-items: center;
-}
-
-.project-button {
-  width: 220px;
-  height: 46px;
-  flex-shrink: 0;
-  border-radius: 11px;
-  background: #0098DB;
-  border: none;
-  display: flex;
-  align-items: center;
-  justify-content: center;
-  gap: 10px; /* Khoảng cách giữa văn bản và icon */
-  cursor: pointer;
-}
-
-.project-button-text {
-  display: flex;
-  width: 202px;
-  height: 23px;
-  flex-direction: column;
-  justify-content: flex-end;
-  flex-shrink: 0;
-  color: #FFF;
-  text-align: center;
-  font-family: Montserrat, sans-serif;
-  font-size: 24px;
-  font-style: normal;
-  font-weight: 800;
-  line-height: 100%; /* 24px */
-  margin-left: -20px;
-}
-
-.project-button-icon {
-  width: 22px;
-  height: 22px;
-  flex-shrink: 0;
-  margin-left: -35px;
-  margin-top: -2px;
-}
-
-.box-frame {
-  width: 100%;
-  max-width: 1920px;
-  height: 1400px; /* Tăng từ 1220px lên 1400px để chứa .news-box-group */
-  flex-shrink: 0;
-  background: #E5F4FB;
-  position: absolute;
-  top: 3568px;
-  left: 50%;
-  transform: translateX(-50%);
-  display: flex;
-  justify-content: center;
-  align-items: center;
-}
-
-.tk-table {
-  width: 100%;
-  max-width: 1349.531px;
-  height: auto;
-  min-height: 592.048px;
-  flex-shrink: 0;
-  background: #0098DB;
-  position: relative;
-  margin: 0 auto; /* Căn giữa trong box-frame */
-  transition: background 0.5s ease;
-  top: -25%;
-}
-
-.tk-vector-left, .tk-vector-right {
-  position: absolute;
-  top: 50%;
-  transform: translateY(-50%);
-  width: 43.974px;
-  height: 51.614px;
-  z-index: 100;
-  top: 25%;
-}
-
-.tk-vector-left {
-  left: 200px; /* Điều chỉnh để phù hợp trong box-frame */
-}
-
-.tk-vector-right {
-  right: 200px; /* Điều chỉnh để phù hợp trong box-frame */
-}
-
-.tk-vector-left button, .tk-vector-right button {
-  background: none;
-  border: none;
-  padding: 0;
-  cursor: pointer;
-  display: block;
-  width: 100%;
-  height: 100%;
-}
-
-.tk-vector-left button svg, .tk-vector-right button svg {
-  width: 100%;
-  height: 100%;
-}
-
-/* Xóa fill cố định, sẽ dùng JS để đặt màu động */
-.tk-vector-left button svg path,
-.tk-vector-right button svg path {
-  transition: fill 0.5s ease; /* Thêm hiệu ứng chuyển màu mượt */
-}
-
-
-.tk-dots-container {
-  position: absolute;
-  bottom: 51%;
-  left: 50%;
-  transform: translateX(-50%);
-  display: flex;
-  gap: 10px;
-  z-index: 9999; /* Tăng cao để không bị che */
-}
-
-.tk-dot {
-  width: 9px;
-  height: 10px;
-  background-color: #0098DB; /* màu mặc định khi chưa active */
-  border-radius: 40px;
-  transition: height 0.3s ease, background 0.5s ease;
-  cursor: pointer;
-}
-
-.tk-dot.active {
-  height: 20px;
-  background-color: #0098DB; /* khi bấm sẽ hiện màu xanh */
-}
-
-
-.news-box {
-  width: 356px;
-  height: 62px;
-  flex-shrink: 0;
-  border-radius: 10px;
-  background: linear-gradient(90deg, #0098DB 0%, #E5F4FB 77.4%);
-  position: absolute;
-  bottom: 625px; /* Đặt ngay dưới tk-dots-container, cách 10px */
-  left:35%;
-  transform: translateX(-50%);
-  display: flex;
-  align-items: center;
-  justify-content: space-between;
-  padding: 0 20px; /* Khoảng cách bên trong để văn bản không sát mép */
-  box-sizing: border-box;
-}
-
-.news-title {
-  display: flex;
-  width: 191px;
-  height: 42px;
-  flex-direction: column;
-  justify-content: flex-end;
-  flex-shrink: 0;
-  color: #FFF;
-  text-align: center;
-  font-family: Montserrat, sans-serif;
-  font-size: 30px;
-  font-style: normal;
-  font-weight: 800;
-  line-height: 100%; /* 30px */
-}
-
-.news-desc {
-  display: flex;
-  width: 589px;
-  height: 62px;
-  flex-direction: column;
-  justify-content: flex-end;
-  flex-shrink: 0;
-  color: #000;
-  font-family: Montserrat, sans-serif;
-  font-size: 24px;
-  font-style: normal;
-  font-weight: 800;
-  line-height: 120%; /* 28.8px */
-  text-align: left;
-  margin-left: 40%;
-}
-.news-bar {
-  width: 356px;
-  height: 3px;
-  flex-shrink: 0;
-  border-radius: 10px;
-  background: linear-gradient(90deg, #0098DB 0%, #E5F4FB 77.4%);
-  margin-top: 30%;
-  margin-left: -185%;
-}
-.news-sub-desc {
-  display: flex;
-  width: 574px;
-  height: 62px;
-  flex-direction: column;
-  justify-content: flex-end;
-  flex-shrink: 0;
-  color: #000;
-  text-align: justify;
-  font-family:  sans-serif;
-  font-size: 16px;
-  font-style: normal;
-  font-weight: 200;
-  line-height: 120%; /* 19.2px */
-  margin-top: 55%;
-  margin-left: -113%;
-}
-
-.news-box-group {
-  display: flex;
-  justify-content: center;
-  gap: 30px;
-  width: 100%;
-  max-width: 1178px; /* (272px * 4) + (30px * 3) = 1178px */
-  position: absolute;
-  bottom: 9%; /* 390px (bottom của .news-box) + 62px (chiều cao .news-box) + 140px */
-  left: 50%;
-  transform: translateX(-50%);
-}
-
-.news-box-item {
-  width: 272px;
-  height: 372px;
-  flex-shrink: 0;
-  background: #0098DB;
-  border-radius: 20px; /* Tùy chọn: thêm góc bo tròn cho đồng bộ */
-}
-
-.news-box-item {
-  width: 272px;
-  height: 372px;
-  flex-shrink: 0;
-  background: #0098DB;
-  border-radius: 20px;
-  display: flex;
-  flex-direction: column;
-  align-items: center;
-}
-
-.news-box-text {
-  width: 272px;
-  color: #023E8A;
-  text-align: justify;
-  font-family: Inter, sans-serif;
-  font-size: 15px;
-  font-style: normal;
-  font-weight: 400;
-  line-height: 100%; /* 15px */
-  margin-top: 145%; /* Khoảng cách giữa box và văn bản */
-}
-.footer {
-  width: 100%;
-  max-width: 100%;
-  height: auto;
-  min-height: 321px;
-  flex-shrink: 0;
-  background: #023E8A;
-  position: absolute; /* Đổi từ relative sang absolute */
-  top: 5020px; /* 3568px (top của box-frame) + 1400px (chiều cao box-frame) */
-  left: 50%;
-  transform: translateX(-50%);
-  overflow: hidden;
-}
-
-.footer-content {
-  display: flex;
-  justify-content: space-between;
-  position: relative;
-  top: 70px;
-  width: 100%;
-  max-width: 100%;
-  margin: 0 auto;
-  padding: 0 20px;
-  box-sizing: border-box;
-  flex-wrap: wrap;
-}
-
-.footer-text-wrapper {
-  width: 25%;
-  display: flex;
-  flex-direction: column;
-  align-items: flex-start;
-  padding: 0 15px;
-  box-sizing: border-box;
-}
-
-.footer-text {
-  display: flex;
-  width: 438px;
-  height: 29px;
-  flex-direction: column;
-  justify-content: center;
-  flex-shrink: 0;
-  color: #FFF;
-  font-family: Montserrat;
-  font-size: 25px;
-  font-style: normal;
-  font-weight: 800;
-  line-height: 120%;
-  text-align: left;
-}
-
-.footer-underline {
-  width: 200px;
-  height: 4px;
-  flex-shrink: 0;
-  background: #FFF;
-  margin-top: 10px;
-}
-
-.contact-info {
-  display: flex;
-  flex-direction: column;
-  align-items: flex-start;
-  gap: 14px;
-  margin-top: 50px;
-}
-
-.contact-item {
-  display: flex;
-  align-items: center;
-  gap: 4px;
-  width: 100%;
-}
-
-.contact-logo {
-  flex-shrink: 0;
-}
-
-.contact-logo.phone {
-  width: 24px;
-  height: 25px;
-}
-
-.contact-logo.website {
-  width: 24px;
-  height: 25px;
-}
-
-.contact-logo.email {
-  width: 25px;
-  height: 20px;
-}
-
-.contact-text {
-  display: flex;
-  width: 100%;
-  height: auto;
-  flex-direction: column;
-  justify-content: flex-end;
-  flex-shrink: 0;
-  color: #FFF;
-  font-family: Montserrat;
-  font-size: 15px;
-  font-style: normal;
-  font-weight: 600;
-  line-height: 115%;
-}
-
-.social-icons {
-  display: flex;
-  gap: 30px;
-  margin-top: 15px;
-  align-items: center;
-}
-
+    .social-icons {
+      display: flex;
+      gap: 30px;
+      margin-top: 15px;
+      align-items: center;
+    }
+      
   </style>
 </head>
 <body>
-   <nav class="navbar">
+  <nav class="navbar">
     <div class="navbar-left">
       <div class="logo"></div>
       <div class="search-bar">
@@ -1209,7 +1292,6 @@
         <input type="text" placeholder="Tìm kiếm...">
       </div>
     </div>
-    
     <div class="navbar-center">
       <a href="index.html" class="home"><i class="fas fa-home"></i>HOME</a>
       <a href="t2.html">GIỚI THIỆU</a>
@@ -1235,7 +1317,6 @@
     </div>
   </nav>
   <div class="overlay"></div>
-  <div class="blue-frame"></div>
   <div class="page-container">
     <div class="sidebar-blue">
       <div class="top-buttons">
@@ -1323,222 +1404,126 @@
           <span></span>
         </div>
       </div>
-  </div>
-
-</div>
-  <div class="blue-layer"></div>
-  <div class="song-thien">
-    <div class="icon-container">
-      <div class="diamond diamond-back-left"></div>
-      <div class="diamond diamond-back-right"></div>
-      <div class="diamond diamond-front"></div>
-    </div>
-    <div class="ve-song-thien">
-      <div class="title-frame">
-        <div class="title-text">VỀ SÔNG THIÊN</div>
-
-        
-      </div>
-      <span>SÔNG THIÊN là đơn vị tư vấn và phát triển dự án chuyên nghiệp, tiên phong trong việc kiến tạo những giá trị thực, mang đến sự thịnh vượng cho tất cả các những đối tác hợp tác cùng chúng tôi. <br><br>
-
-        Chúng tôi sở hữu những đội ngũ chuyên gia, đã có hàng chục năm kinh nghiệm trong việc phát triển dự án Bất động sản từ Nam ra Bắc trên toàn Việt Nam. Đội ngũ lãnh đạo của Sông Thiên là sự kết hợp của những con người bản lĩnh, kinh nghiệm, kiến thức với những con người sáng tạo, sức trẻ, nhiệt huyết. Các dự án đã được đội ngũ lãnh đạo của Sông Thiên thực hiện được trải dài trong mọi phân khúc của bất động sản, từ những khu đô thị quy mô lớn hàng trăm hecta, những chung cư thương mại cao cấp, các dự án nhà ở xã hội, cho tới cả những khu nghỉ dưỡng mà mỗi sản phẩm đều mang giá trị triệu USD với đẳng cấp quốc tế. <br> <br>
-        
-        Sông Thiên tự tin cung cấp hệ sinh thái trọn vẹn, đưa ra những giải pháp tối ưu nhất cho các khó khăn của các chủ đầu tư, từ pháp lý đến nguồn vốn, từ truyền thông đến thương mại, và tối ưu dòng tiền thông qua các hệ thống quản lý vận hành chuyên nghiệp. <br> <br>
-        
-        Sông Thiên nỗ lực không ngừng với sứ mệnh Kiến tạo sự thịnh vượng cho quý chủ đầu tư và trao đến giá trị thực cho các khách hàng.
-        </span>
-        <div class="xem-them-button">
-          <span>XEM THÊM</span>
-          <svg xmlns="http://www.w3.org/2000/svg" width="22" height="22" viewBox="0 0 22 22" fill="none">
-            <path fill-rule="evenodd" clip-rule="evenodd" d="M11 22C17.0751 22 22 17.0751 22 11C22 4.92487 17.0751 0 11 0C4.92487 0 0 4.92487 0 11C0 17.0751 4.92487 22 11 22ZM8.28927 7.05535L9.84489 5.49973L15.2895 10.9447L9.84473 16.3893L8.28905 14.8337L12.1784 10.9445L8.28927 7.05535Z" fill="white"/>
-          </svg>
-        </div>
-    </div>
-  </div>
-  <div class="linh-vuc-kinh-doanh">
-    <div class="linh-vuc-wrapper">
-      <div class="business-title-box">
-        <div class="business-title-text">LĨNH VỰC KINH DOANH</div>
-      </div>
-  
-      <div class="business-image-group">
-        <div class="business-box">
-          <div class="inner-box">
-            <div class="inner-title">THIẾT KẾ<br>THI CÔNG</div>
-            <div class="underline"></div>
-            <div class="inner-desc">
-              Tổ chức vận hành - Tổ chức cho thuê<br>
-              - Tối ưu dòng tiền
-            </div>
-          </div>
-        </div>
-        <div class="business-box">
-          <div class="inner-box">
-            <div class="inner-title">THIẾT KẾ<br>THI CÔNG</div>
-            <div class="underline"></div>
-            <div class="inner-desc">
-              Tổ chức vận hành - Tổ chức cho thuê<br>
-              - Tối ưu dòng tiền
-            </div>
-          </div>
-        </div>
-        <div class="business-box">
-          <div class="inner-box">
-            <div class="inner-title">THIẾT KẾ<br>THI CÔNG</div>
-            <div class="underline"></div>
-            <div class="inner-desc">
-              Tổ chức vận hành - Tổ chức cho thuê<br>
-              - Tối ưu dòng tiền
-            </div>
-          </div>
-        </div>
-        <div class="business-box">
-          <div class="inner-box">
-            <div class="inner-title">THIẾT KẾ<br>THI CÔNG</div>
-            <div class="underline"></div>
-            <div class="inner-desc">
-              Tổ chức vận hành - Tổ chức cho thuê<br>
-              - Tối ưu dòng tiền
-            </div>
-          </div>
-        </div>
-        <div class="business-box">
-          <div class="inner-box">
-            <div class="inner-title">THIẾT KẾ<br>THI CÔNG</div>
-            <div class="underline"></div>
-            <div class="inner-desc">
-              Tổ chức vận hành - Tổ chức cho thuê<br>
-              - Tối ưu dòng tiền
-            </div>
-          </div>
-        </div>
-      </div>
     </div>
   </div>
 
   <div class="new-frame">
-    <div class="project-title-box">
-      <div class="project-title-text">DỰ ÁN</div>
+    <div class="sub-frame">
+        <div class="top-frame">
+            <div class="intro-text">GIỚI THIỆU</div>
+          </div>
+          <div class="bottom-text">ĐƠN VỊ TƯ VẤN - PHÁT TRIỂN DỰ ÁN BẤT ĐỘNG SẢN CHUYÊN NGHIỆP HÀNG ĐẦU VIỆT NAM</div>
+          <div class="description-text">
+            <span class="song-thien">SÔNG THIÊN</span> là đơn vị tư vấn và phát triển dự án chuyên nghiệp, tiên phong trong việc kiến tạo những giá trị thực, mang đến sự thịnh vượng cho tất cả các những đối tác hợp tác cùng chúng tôi. 
+            <br><br>
+            Chúng tôi sở hữu những đội ngũ chuyên gia, đã có hàng chục năm kinh nghiệm trong việc phát triển dự án Bất động sản từ Nam ra Bắc trên toàn Việt Nam. Đội ngũ lãnh đạo của Sông Thiên là sự kết hợp của những con người bản lĩnh, kinh nghiệm, kiến thức với những con người sáng tạo, sức trẻ, nhiệt huyết. Các dự án đã được đội ngũ lãnh đạo của Sông Thiên thực hiện được trải dài trong mọi phân khúc của bất động sản, từ những khu đô thị quy mô lớn hàng trăm hecta, những chung cư thương mại cao cấp, các dự án nhà ở xã hội, cho tới cả những khu nghỉ dưỡng mà mỗi sản phẩm đều mang giá trị triệu USD với đẳng cấp quốc tế.
+            <br><br>
+            Sông Thiên tự tin cung cấp hệ sinh thái trọn vẹn, đưa ra những giải pháp tối ưu nhất cho các khó khăn của các chủ đầu tư, từ pháp lý đến nguồn vốn, từ truyền thông đến thương mại, và tối ưu dòng tiền thông qua các hệ thống quản lý vận hành chuyên nghiệp.
+            <br><br>
+            Sông Thiên nỗ lực không ngừng với sứ mệnh Kiến tạo sự thịnh vượng cho quý chủ đầu tư và trao đến giá trị thực cho các khách hàng.
+          </div>
+          <svg class="triangle-1" xmlns="http://www.w3.org/2000/svg" width="464.77" height="616.1" viewBox="0 0 464.77 616.1">
+            <path d="M0 0L464.77 0L232.385 616.1L0 0Z" fill="#0098DB"/>
+          </svg>
+          <svg class="triangle-2" xmlns="http://www.w3.org/2000/svg" width="481.16" height="616.11" viewBox="0 0 481.16 616.11">
+            <path d="M0 0L481.16 0L240.58 616.11L0 0Z" fill="#0098DB"/>
+          </svg>
     </div>
-    <div class="project-image-group">
-      <div class="project-box">
-        <div class="inner-project-box"></div>
-        <div class="project-text">KHANG PHAT <br> DIAMOND CENTRAL</div>
-        <div class="project-button-box">
-          <button class="project-button">
-            <span class="project-button-text">XEM THÊM</span>
-            <svg class="project-button-icon" xmlns="http://www.w3.org/2000/svg" width="22" height="22" viewBox="0 0 22 22" fill="none">
-              <path fill-rule="evenodd" clip-rule="evenodd" d="M11 22C17.0751 22 22 17.0751 22 11C22 4.92487 17.0751 0 11 0C4.92487 0 0 4.92487 0 11C0 17.0751 4.92487 22 11 22ZM8.28927 7.05535L9.84489 5.49973L15.2895 10.9447L9.84473 16.3893L8.28905 14.8337L12.1784 10.9445L8.28927 7.05535Z" fill="white"/>
-            </svg>
-          </button>
-        </div>
+      
+    <div class="news">
+    <div class="square-box"></div>
+    <div class="news-frame">
+        <svg class="news-icon" xmlns="http://www.w3.org/2000/svg" width="23" height="29" viewBox="0 0 23 29" fill="none">
+          <path d="M0 1.45C0 0.649187 0.64359 0 1.4375 0H13.6562V9.425H23V27.55C23 28.3508 22.3564 29 21.5625 29H1.4375C0.64359 29 0 28.3508 0 27.55V1.45Z" fill="white"/>
+        </svg>
+        <div class="news-text">TIN TỨC</div>
       </div>
-      <div class="project-box">
-        <div class="inner-project-box"></div>
-        <div class="project-text">KHU CÔNG NGHIỆP <br> DU LONG</div>
-        <div class="project-button-box">
-          <button class="project-button">
-            <span class="project-button-text">XEM THÊM</span>
-            <svg class="project-button-icon" xmlns="http://www.w3.org/2000/svg" width="22" height="22" viewBox="0 0 22 22" fill="none">
-              <path fill-rule="evenodd" clip-rule="evenodd" d="M11 22C17.0751 22 22 17.0751 22 11C22 4.92487 17.0751 0 11 0C4.92487 0 0 4.92487 0 11C0 17.0751 4.92487 22 11 22ZM8.28927 7.05535L9.84489 5.49973L15.2895 10.9447L9.84473 16.3893L8.28905 14.8337L12.1784 10.9445L8.28927 7.05535Z" fill="white"/>
-            </svg>
-          </button>
-        </div>
+      <div class="news-title">
+        VƯƠN MÌNH VỚI KHÁT VỌNG TRỞ THÀNH<br>MỘT BIỂU TƯỢNG
       </div>
-      <div class="project-box">
-        <div class="inner-project-box"></div>
-        <div class="project-text">DỰ ÁN HOÀNH THÁNH PEARL</div>
-        <div class="project-button-box">
-          <button class="project-button">
-            <span class="project-button-text">XEM THÊM</span>
-            <svg class="project-button-icon" xmlns="http://www.w3.org/2000/svg" width="22" height="22" viewBox="0 0 22 22" fill="none">
-              <path fill-rule="evenodd" clip-rule="evenodd" d="M11 22C17.0751 22 22 17.0751 22 11C22 4.92487 17.0751 0 11 0C4.92487 0 0 4.92487 0 11C0 17.0751 4.92487 22 11 22ZM8.28927 7.05535L9.84489 5.49973L15.2895 10.9447L9.84473 16.3893L8.28905 14.8337L12.1784 10.9445L8.28927 7.05535Z" fill="white"/>
-            </svg>
-          </button>
-        </div>
+      <div class="news-description">
+        Sông Thiên tự hào sở hữu đầy đủ những điều kiện để trở thành đơn vị tư vấn và phát triển dự án hàng đầu thị trường Bất động sản Việt Nam. Chúng tôi có những nhà lãnh đạo ưu tú, danh tiếng trên thị trường; sở hữu hệ sinh thái trọn vẹn cho một dự án; đồng hành với những đối tác uy tín và tầm cỡ tại Việt Nam. Vì thế, trong ngắn hạn, Sông Thiên tự tin mang tới những giải pháp tốt nhất với các chủ đầu tư đang gặp khó khăn để phát triển dự án của mình. Trong thời gian ngắn của 5 năm hoạt động tiếp theo, Sông Thiên tự tin vươn mình trở thành một biểu tượng trong lĩnh vực Tư vấn và Phát triển dự án thị trường Bất động sản Việt Nam, là điểm đến uy tín và chất lượng cho tất cả các chủ đầu tư.
       </div>
-      <div class="project-box">
-        <div class="inner-project-box"></div>
-        <div class="project-text">CHARM RESOT <br> LONG HẢI</div>
-        <div class="project-button-box">
-          <button class="project-button">
-            <span class="project-button-text">XEM THÊM</span>
-            <svg class="project-button-icon" xmlns="http://www.w3.org/2000/svg" width="22" height="22" viewBox="0 0 22 22" fill="none">
-              <path fill-rule="evenodd" clip-rule="evenodd" d="M11 22C17.0751 22 22 17.0751 22 11C22 4.92487 17.0751 0 11 0C4.92487 0 0 4.92487 0 11C0 17.0751 4.92487 22 11 22ZM8.28927 7.05535L9.84489 5.49973L15.2895 10.9447L9.84473 16.3893L8.28905 14.8337L12.1784 10.9445L8.28927 7.05535Z" fill="white"/>
-            </svg>
-          </button>
-        </div>
+  </div>
+  <div class="news2">
+    <div class="square-box2"></div>
+    <div class="news-frame2">
+        <svg class="news-icon2" xmlns="http://www.w3.org/2000/svg" width="23" height="29" viewBox="0 0 23 29" fill="none">
+          <path d="M0 1.45C0 0.649187 0.64359 0 1.4375 0H13.6562V9.425H23V27.55C23 28.3508 22.3564 29 21.5625 29H1.4375C0.64359 29 0 28.3508 0 27.55V1.45Z" fill="white"/>
+        </svg>
+        <div class="news-text2">SỨ MỆNH</div>
       </div>
-      <div class="project-box">
-        <div class="inner-project-box"></div>
-        <div class="project-text">DỰ ÁN <br> THE IFINITY</div>
-        <div class="project-button-box">
-          <button class="project-button">
-            <span class="project-button-text">XEM THÊM</span>
-            <svg class="project-button-icon" xmlns="http://www.w3.org/2000/svg" width="22" height="22" viewBox="0 0 22 22" fill="none">
-              <path fill-rule="evenodd" clip-rule="evenodd" d="M11 22C17.0751 22 22 17.0751 22 11C22 4.92487 17.0751 0 11 0C4.92487 0 0 4.92487 0 11C0 17.0751 4.92487 22 11 22ZM8.28927 7.05535L9.84489 5.49973L15.2895 10.9447L9.84473 16.3893L8.28905 14.8337L12.1784 10.9445L8.28927 7.05535Z" fill="white"/>
-            </svg>
-          </button>
-        </div>
+      <div class="news-title2">
+        VƯƠN MÌNH VỚI KHÁT VỌNG TRỞ THÀNH<br>MỘT BIỂU TƯỢNG
       </div>
-      <div class="project-box">
-        <div class="inner-project-box"></div>
-        <div class="project-text">CHARM CITY <br> VŨNG TÀU</div>
-        <div class="project-button-box">
-          <button class="project-button">
-            <span class="project-button-text">XEM THÊM</span>
-            <svg class="project-button-icon" xmlns="http://www.w3.org/2000/svg" width="22" height="22" viewBox="0 0 22 22" fill="none">
-              <path fill-rule="evenodd" clip-rule="evenodd" d="M11 22C17.0751 22 22 17.0751 22 11C22 4.92487 17.0751 0 11 0C4.92487 0 0 4.92487 0 11C0 17.0751 4.92487 22 11 22ZM8.28927 7.05535L9.84489 5.49973L15.2895 10.9447L9.84473 16.3893L8.28905 14.8337L12.1784 10.9445L8.28927 7.05535Z" fill="white"/>
-            </svg>
-          </button>
-        </div>
+      <div class="news-description2">
+        Sông Thiên tự hào sở hữu đầy đủ những điều kiện để trở thành đơn vị tư vấn và phát triển dự án hàng đầu thị trường Bất động sản Việt Nam. Chúng tôi có những nhà lãnh đạo ưu tú, danh tiếng trên thị trường; sở hữu hệ sinh thái trọn vẹn cho một dự án; đồng hành với những đối tác uy tín và tầm cỡ tại Việt Nam. Vì thế, trong ngắn hạn, Sông Thiên tự tin mang tới những giải pháp tốt nhất với các chủ đầu tư đang gặp khó khăn để phát triển dự án của mình. Trong thời gian ngắn của 5 năm hoạt động tiếp theo, Sông Thiên tự tin vươn mình trở thành một biểu tượng trong lĩnh vực Tư vấn và Phát triển dự án thị trường Bất động sản Việt Nam, là điểm đến uy tín và chất lượng cho tất cả các chủ đầu tư.
       </div>
-    </div>
   </div>
 
-  <div class="box-frame">
-    <div class="tk-table"></div>
-    <div class="tk-vector-left">
-      <button>
-        <svg xmlns="http://www.w3.org/2000/svg" width="66.459" height="80" viewBox="0 0 44 54" fill="none">
-          <path d="M1.12043 24.8399C-0.373477 25.7583 -0.373477 27.9767 1.12043 28.8951L40.4787 53.0932C42.0167 54.0387 43.9735 52.9035 43.9735 51.0656V2.66939C43.9735 0.831442 42.0167 -0.303767 40.4787 0.641807L1.12043 24.8399Z" fill="#0098DB"/>
+  <div class="gt-frame">
+    <div class="gt-top-frame">
+      <div class="gt-top-text">5 GIÁ TRỊ CHỦ LỰC</div>
+    </div>
+    <div class="gt-middle-frame">
+      <div class="gt-middle-text">NĂNG LỰC CHỨNG MINH QUA</div>
+    </div>
+    <div class="gt-value-frame-1">
+      <div class="gt-value-inner-frame"></div>
+      <div class="gt-value-text1">BAN LÃNH ĐẠO</div>
+      <div class="gt-value-text2">Chủ tịch Hội đồng Quản trị - Tổng giám đốc Phạm Minh đã kinh qua hàng chục dự án, hơn 30 năm kinh nghiệm trong lĩnh vực BĐS. Từng giữ nhiều vị trí quan trọng...</div>
+    </div>
+    <div class="gt-value-frame-2">
+      <div class="gt-value-inner-frame"></div>
+      <div class="gt-value-text1">MỐI QUAN HỆ</div>
+      <div class="gt-value-text2">Bề dày hoạt động trong thị trường BĐS đảm bảo BLĐ Sông Thiên giữ được mối quan hệ với các đối tác chính lược từ các nhà thầu chính, nhà thầu phụ, đơn vị thiết...</div>
+    </div>
+    <div class="gt-value-frame-3">
+      <div class="gt-value-inner-frame"></div>
+      <div class="gt-value-text1">NĂNG LỰC</div>
+      <div class="gt-value-text2">Chúng tôi đảm bảo năng lực triển khai hiệu quả khi sở hữu đầy đủ các công cụ, cung cấp các giải pháp để giải quyết mọi khó khăn của dự án một cách tối ưu nhất...</div>
+    </div>
+    <div class="gt-value-frame-4">
+      <div class="gt-value-inner-frame"></div>
+      <div class="gt-value-text1">HST TRỌN VẸN</div>
+      <div class="gt-value-text2">Chúng tôi sở hữu hệ sinh thái trọn vẹn mà một dự án cần tới để phát triển. Từ việc định vị, định hình dự án, giải quyết pháp lý, tìm kiếm nguồn vốn, đến việc...</div>
+    </div>
+    <div class="gt-value-frame-5">
+      <div class="gt-value-inner-frame"></div>
+      <div class="gt-value-text1">AN TOÀN CHIA SẺ</div>
+      <div class="gt-value-text2">Quý Chủ đầu tư được tận hưởng một dịch vụ đẳng cấp khi lựa chọn chúng tôi, các bạn đã lựa chọn một đơn vị có thể đồng hành, chia sẻ rủi ro cùng dự án, và nắm...</div>
+    </div>
+  </div>
+  <div class="new-section-frame">
+    <div class="partner-frame">
+      <div class="partner-title-frame">
+        <div class="partner-text">ĐỐI TÁC</div>
+      </div>
+      <div class="partner-squares">
+        <div class="partner-square-row">
+          <div class="partner-square"></div>
+          <div class="partner-square"></div>
+          <div class="partner-square"></div>
+          <div class="partner-square"></div>
+          <div class="partner-square"></div>
+        </div>
+        <div class="partner-square-row">
+          <div class="partner-square"></div>
+          <div class="partner-square"></div>
+          <div class="partner-square"></div>
+          <div class="partner-square"></div>
+          <div class="partner-square"></div>
+        </div>
+      </div>
+      <div class="partner-button">
+        <div class="partner-button-text">XEM THÊM</div>
+        <svg class="partner-button-icon" xmlns="http://www.w3.org/2000/svg" width="30" height="30" viewBox="0 0 30 30" fill="none">
+          <path fill-rule="evenodd" clip-rule="evenodd" d="M15 30C23.2843 30 30 23.2843 30 15C30 6.71572 23.2843 0 15 0C6.71572 0 0 6.71572 0 15C0 23.2843 6.71572 30 15 30ZM11.3035 9.62092L13.4248 7.49963L20.8493 14.9246L13.4246 22.3491L11.3032 20.2278L16.6069 14.9242L11.3035 9.62092Z" fill="white"/>
         </svg>
-      </button>
-    </div>
-    <div class="tk-vector-right">
-      <button>
-        <svg xmlns="http://www.w3.org/2000/svg" width="68.429" height="80" viewBox="0 0 44 53" fill="none">
-          <path d="M42.8804 24.6569C44.3743 25.549 44.3743 27.704 42.8804 28.5962L3.52213 52.1029C1.98415 53.0214 0.0273438 51.9187 0.0273438 50.1332V3.11979C0.0273438 1.33436 1.98415 0.231584 3.52213 1.15014L42.8804 24.6569Z" fill="#0098DB"/>
-        </svg>
-      </button>
-    </div>
-    <div class="tk-dots-container">
-      <div class="tk-dot active"></div>
-      <div class="tk-dot"></div>
-      <div class="tk-dot"></div>
-      <div class="tk-dot"></div>
-    </div>
-    
-    <div class="news-box">
-      <span class="news-title">TIN TỨC</span>
-      <span class="news-desc">CHIẾN LƯỢC TRUYỀN THÔNG BẤT ĐỘNG SẢN YẾU TỐ THEN CHỐT ĐỂ DỰ ÁN THÀNH CÔNG</span>
-      <div class="news-bar"></div>
-      <span class="news-sub-desc">Giải pháp truyền thông bất động sản toàn diện từ Sông Thiên Trong bối cảnh thị trường bất động sản ngày càng cạnh tranh, việc sở hữu một dự án với vị trí đẹp, tiện ích đồng bộ hay thiết kế ấn tượng vẫn chưa đủ để thu hút khách…</span>
-    </div>
-
-    <div class="news-box-group">
-      <div class="news-box-item">
-        <span class="news-box-text">SPORTIA – TRUNG TÂM THỂ THAO HIỆN ĐẠI KIẾN TẠO LỐI SỐNG NĂNG ĐỘNG TẠI...</span>
       </div>
-      <div class="news-box-item">
-        <span class="news-box-text">KHANG PHÁT DIAMOND CENTRAL – ĐÓN ĐẦU LÀN SÓNG BẤT ĐỘNG SẢN VEN ĐÔ </span>
-      </div>
-      <div class="news-box-item">
-        <span class="news-box-text">CHÁY HÀNG KHU LIỀN KỀ 4 – KHANG PHÁT DIAMOND CENTRAL | SÔNG THIÊN KHẲN...</span>
-      </div>
-      <div class="news-box-item">
-        <span class="news-box-text">SÔNG THIÊN ĐỒNG HÀNH CÙNG LỄ KHỞI CÔNG DỰ ÁN KHANG PHÁT DIAMOND...</span>
-      </div>
+      <div class="partner-bottom-frame"></div>
+      <div class="partner-gradient-bar"></div>
+      <div class="partner-description">Đối tác hoạt động chuyên nghiệp trong lĩnh vực bất động sản, với kinh nghiệm dày dặn trong việc đầu tư, phát triển và khai thác các dự án nhà ở, khu đô thị, bất động sản thương mại – dịch vụ, khu công nghiệp và hạ tầng kỹ thuật. Đối tác đảm nhiệm toàn diện các công đoạn từ nghiên cứu thị trường, lập quy hoạch, phát triển ý tưởng dự án, thu xếp nguồn vốn, thi công xây dựng cho đến quản lý, vận hành và kinh doanh sản phẩm bất động sản, đảm bảo tuân thủ đầy đủ các quy định pháp luật và đáp ứng các tiêu chuẩn chất lượng cao trong lĩnh vực bất động sản.</div>
     </div>
   </div>
   <div class="footer">
@@ -1633,7 +1618,9 @@
       </div>
     </div>
   </div>
-  
+</div>
+
+
   <script>
     document.addEventListener('DOMContentLoaded', function() {
       // Navbar link active state
@@ -1675,56 +1662,7 @@
         navbar.classList.remove('dimmed');
       });
     });
-      const tkTable = document.querySelector('.tk-table');
-      const tkLeftButton = document.querySelector('.tk-vector-left button');
-      const tkRightButton = document.querySelector('.tk-vector-right button');
-      const tkDots = document.querySelectorAll('.tk-dot');
-      const tkLeftVectorPaths = document.querySelectorAll('.tk-vector-left button svg path');
-      const tkRightVectorPaths = document.querySelectorAll('.tk-vector-right button svg path');
-      const colors = ['#0098DB', '#0085C0', '#03638E', '#002434'];
-      let currentColorIndex = 0;
-      function updateTableBackgroundAndDots() {
-        const currentColor = colors[currentColorIndex];
-        tkTable.style.background = currentColor;
-        tkDots.forEach((dot, index) => {
-          dot.classList.toggle('active', index === currentColorIndex);
-          dot.style.background = '#0098DB'; /* Màu trắng cố định cho tk-dot */
-        });
-        tkLeftVectorPaths.forEach(path => {
-          path.setAttribute('fill', currentColor);
-        });
-        tkRightVectorPaths.forEach(path => {
-          path.setAttribute('fill', currentColor);
-        });
-      }
-  
-      tkLeftButton.addEventListener('click', function() {
-        currentColorIndex = (currentColorIndex - 1 + colors.length) % colors.length;
-        updateTableBackgroundAndDots();
-      });
-  
-      tkRightButton.addEventListener('click', function() {
-        currentColorIndex = (currentColorIndex + 1) % colors.length;
-        updateTableBackgroundAndDots();
-      });
-  
-
-      function updateTableBackgroundAndDots() {
-        const currentColor = colors[currentColorIndex];
-        tkTable.style.background = currentColor;
-        tkDots.forEach((dot, index) => {
-          dot.classList.toggle('active', index === currentColorIndex);
-          dot.style.background = '#0098DB'; /* Màu trắng cố định */
-        });
-        tkLeftVectorPaths.forEach(path => {
-          path.setAttribute('fill', currentColor);
-        });
-        tkRightVectorPaths.forEach(path => {
-          path.setAttribute('fill', currentColor);
-        });
-      }
-  
-
   </script>
-  <script>(function(){function c(){var b=a.contentDocument||a.contentWindow.document;if(b){var d=b.createElement('script');d.innerHTML="window.__CF$cv$params={r:'9349fdb97ce4b05a',t:'MTc0NTM3NTk3My4wMDAwMDA='};var a=document.createElement('script');a.nonce='';a.src='/cdn-cgi/challenge-platform/scripts/jsd/main.js';document.getElementsByTagName('head')[0].appendChild(a);";b.getElementsByTagName('head')[0].appendChild(d)}}if(document.body){var a=document.createElement('iframe');a.height=1;a.width=1;a.style.position='absolute';a.style.top=0;a.style.left=0;a.style.border='none';a.style.visibility='hidden';document.body.appendChild(a);if('loading'!==document.readyState)c();else if(window.addEventListener)document.addEventListener('DOMContentLoaded',c);else{var e=document.onreadystatechange||function(){};document.onreadystatechange=function(b){e(b);'loading'!==document.readyState&&(document.onreadystatechange=e,c())}}}})();</script>
-</body>
+<script>(function(){function c(){var b=a.contentDocument||a.contentWindow.document;if(b){var d=b.createElement('script');d.innerHTML="window.__CF$cv$params={r:'931e9321baea4531',t:'MTc0NDkyMDcxOS4wMDAwMDA='};var a=document.createElement('script');a.nonce='';a.src='/cdn-cgi/challenge-platform/scripts/jsd/main.js';document.getElementsByTagName('head')[0].appendChild(a);";b.getElementsByTagName('head')[0].appendChild(d)}}if(document.body){var a=document.createElement('iframe');a.height=1;a.width=1;a.style.position='absolute';a.style.top=0;a.style.left=0;a.style.border='none';a.style.visibility='hidden';document.body.appendChild(a);if('loading'!==document.readyState)c();else if(window.addEventListener)document.addEventListener('DOMContentLoaded',c);else{var e=document.onreadystatechange||function(){};document.onreadystatechange=function(b){e(b);'loading'!==document.readyState&&(document.onreadystatechange=e,c())}}}})();</script></body>
+</html>
+</html>
