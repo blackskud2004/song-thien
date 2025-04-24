@@ -1,17 +1,17 @@
-function scalePage() {
-    const DESIGN_WIDTH = 1920;
-    const scaleRatio = window.innerWidth / DESIGN_WIDTH;
-  
-    const root = document.getElementById('scaled-root');
-    if (root) {
-      root.style.transform = `scale(${scaleRatio})`;
-      root.style.transformOrigin = 'top left';
-      root.style.width = `${DESIGN_WIDTH}px`;
-  
-      // ✅ Tính lại chiều cao thật của phần tử scale
-      const realHeight = root.scrollHeight * scaleRatio;
-      document.body.style.height = `${realHeight}px`;
-      document.body.style.overflowX = 'hidden';
-    }
-  }
-  
+function autoZoomPage() {
+  // Kích thước thiết kế gốc (ví dụ: 1920)
+  const DESIGN_WIDTH = 1920;
+  const w = window.innerWidth;
+
+  // Tính tỷ lệ zoom
+  let zoom = w / DESIGN_WIDTH;
+  // Giới hạn zoom tối đa và tối thiểu để không bị vỡ giao diện
+  zoom = Math.max(0.5, Math.min(zoom, 1));
+
+  // Áp dụng zoom cho body
+  document.body.style.zoom = zoom;
+}
+
+// Gọi hàm khi load và khi resize
+window.addEventListener('load', autoZoomPage);
+window.addEventListener('resize', autoZoomPage);
