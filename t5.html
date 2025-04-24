@@ -630,13 +630,14 @@
       z-index: 2;
     }
     .table-image {
-      width: 328.952px;
+      width:287.833px;
       height: 287.833px;
       flex-shrink: 0;
       background: url('image/2.png') lightgray 0px 0px / 100% 100% no-repeat;
       position: absolute;
       top: 78px;
-      left: 110px;
+      left: 130px;
+      border-radius: 15%;
     }
     .table-text {
       display: flex;
@@ -669,13 +670,14 @@
       z-index: 2;
     }
     .table-image-2 {
-      width: 328.952px;
+      width: 287.833px;
       height: 287.833px;
       flex-shrink: 0;
       background: url('image/3.png') lightgray 0px 0px / 100% 100% no-repeat;
       position: absolute;
       top: 78px;
-      right: 110px;
+      right: 150px;
+      border-radius: 15%;
     }
     .table-text-2 {
       display: flex;
@@ -708,13 +710,14 @@
       z-index: 2;
     }
     .table-image-3 {
-      width: 328.952px;
+      width: 287.833px;
       height: 287.833px;
       flex-shrink: 0;
       background: url('image/4.png') lightgray 0px 0px / 100% 100% no-repeat;
       position: absolute;
       top: 78px;
-      left: 110px;
+      left: 130px;
+      border-radius: 15%;
     }
     .table-text-3 {
       display: flex;
@@ -747,13 +750,14 @@
       z-index: 2;
     }
     .table-image-4 {
-      width: 328.952px;
+      width: 287.833px;
       height: 287.833px;
       flex-shrink: 0;
       background: url('image/5.png') lightgray 0px 0px / 100% 100% no-repeat;
       position: absolute;
       top: 78px;
-      right: 110px;
+      right: 170px;
+      border-radius: 15%;
     }
     .table-text-4 {
       display: flex;
@@ -818,19 +822,28 @@
       left: 50%;
       transform: translateX(-50%);
       z-index: 3;
-      margin: 63px auto ;
-      overflow-x: clip;
+      margin: 63px auto;
+      overflow: hidden;
       width: 100%;
-      max-width: 1920px
-      
+      max-width: 1920px;
     }
+
     .squares {
       display: flex;
       gap: 34px;
-      position: absolute;
-      animation: slide 14s linear infinite;
-      width: calc(230px * 7 + 34px * 6);
+      position: relative;
+      animation: slideRightToLeft 20s linear infinite;
     }
+
+    @keyframes slideRightToLeft {
+      0% {
+          transform: translateX(100%);
+      }
+      100% {
+          transform: translateX(-100%);
+      }
+    }
+
     .square {
       width: 230px;
       height: 230px;
@@ -1277,7 +1290,7 @@
       .squares {
         gap: 15px;
         width: calc(140px * 7 + 15px * 6);
-        animation: slide 10s linear infinite; /* Tốc độ nhanh hơn */
+        animation: slide 30s linear infinite; /* Tốc độ nhanh hơn */
       }
       .square {
         width: 140px;
@@ -1532,6 +1545,28 @@
           <img decoding="async" src="https://songthien.com.vn/wp-content/uploads/2025/01/Ky1Lw1jNUyK1L1QneWsx4x84cdG1xuHGot4Bryrx.png" alt="Elementor" title="Elementor" style="max-width: 100%;margin-top: 58px;margin-left: 58px;">
         </div>
         <div class="square">
+          <img decoding="async" src="https://songthien.com.vn/wp-content/uploads/2025/01/kebIKniDWYJCM1ovTBTiEmA4zrQSQIQ7Py0UFTmT.png" alt="WordPress" title="WordPress" style="max-width: 100% ;    margin-top: 35%;
+    margin-left: 15%;">
+        </div>
+        <div class="square">
+          <img decoding="async" src="https://songthien.com.vn/wp-content/uploads/2025/01/p6fn5DDju9ecVmGCl0WVhf2j2cTkxVDmKaDiAKgB.png" alt="CSS" title="CSS" style="max-width: 100%;margin-top: 25%;margin-left: 11px;"></div>
+        <div class="square">
+          <img decoding="async" src="https://songthien.com.vn/wp-content/uploads/2025/01/xlm9kMu68J9YXl3Airj7Q13YSRvAxXnlaWQi9pQg.png" alt="CSS" title="CSS" style="max-width: 100%;margin-top: 25%;margin-left: 0px;"></div>
+        <div class="square">
+          <img decoding="async" src="https://songthien.com.vn/wp-content/uploads/2025/01/OTvdBWwTtcqCP87RYjukjzKeILn9Qa2vBAYjDkb5.jpeg" alt="HTML" title="HTML" style="max-width: 80%;margin-top: 35px;margin-left: 22px;">
+        </div>
+        <div class="square">
+          <img decoding="async" src="https://songthien.com.vn/wp-content/uploads/2025/01/maJGXscyHKyZSVhul2RdSPQLwxbcybSRYW9npjd9.jpeg" alt="PHP" title="PHP" style="max-width: 100%;margin-top: 100px;margin-left: 13px;">
+        </div>
+        <div class="square">
+          <img decoding="async" src="https://songthien.com.vn/wp-content/uploads/2025/01/ylVTrtU9Ns9ywXLsQS2tOPvRo90CR00Z6bHMWLUj.png" alt="CSS" title="CSS" style="max-width: 100%;margin-top: 75px;margin-left: 40px;">
+        </div>
+        <div class="square">
+          <img decoding="async" src="https://songthien.com.vn/wp-content/uploads/2025/01/Ky1Lw1jNUyK1L1QneWsx4x84cdG1xuHGot4Bryrx.png" alt="Elementor" title="Elementor" style="max-width: 100%;margin-top: 58px;margin-left: 58px;">
+        </div>
+        <div class="square">
+          <img decoding="async" src="https://songthien.com.vn/wp-content/uploads/2025/01/kebIKniDWYJCM1ovTBTiEmA4zrQSQIQ7Py0UFTmT.png" alt="WordPress" title="WordPress" style="max-width: 100%  ;   margin-top: 35%;
+    margin-left: 15%;">
         </div>
     </div>
     </div>
@@ -1615,8 +1650,8 @@
                 </svg>
               </a>
               <a href="#" style="display: inline-block;">
-                <svg xmlns="http://www.w3.org/2000/svg" width="40" height="40" viewBox="0 0 40 40" fill="none" style="flex-shrink: 0;">
-                  <path d="M0.00802678 40L2.71203 30.064C0.930297 27.0097 -0.00578312 23.536 2.68818e-05 20C2.68818e-05 8.954 8.954 0 20 0C31.046 0 40 8.954 40 20C40 31.046 31.046 40 20 40C16.4656 40.0057 12.9933 39.0703 9.94 37.29L0.00802678 40ZM12.782 10.616C12.5237 10.632 12.2714 10.7001 12.04 10.816C11.8231 10.9389 11.625 11.0924 11.452 11.272C11.212 11.498 11.076 11.694 10.93 11.884C10.1908 12.846 9.7932 14.0268 9.8 15.24C9.804 16.22 10.06 17.174 10.46 18.066C11.278 19.87 12.624 21.78 14.402 23.55C14.83 23.976 15.248 24.404 15.698 24.802C17.9048 26.7449 20.5345 28.1461 23.378 28.894L24.516 29.068C24.886 29.088 25.256 29.06 25.628 29.042C26.2105 29.0119 26.7793 28.8542 27.294 28.58C27.626 28.404 27.782 28.316 28.06 28.14C28.06 28.14 28.146 28.084 28.31 27.96C28.58 27.76 28.746 27.618 28.97 27.384C29.136 27.212 29.28 27.01 29.39 26.78C29.546 26.454 29.702 25.832 29.766 25.314C29.814 24.918 29.8 24.702 29.794 24.568C29.786 24.354 29.608 24.132 29.414 24.038L28.25 23.516C28.25 23.516 26.51 22.758 25.448 22.274C25.3361 22.2252 25.2161 22.1974 25.094 22.192C24.9572 22.1779 24.8189 22.1933 24.6885 22.2372C24.5581 22.281 24.4386 22.3522 24.338 22.446V22.442C24.328 22.442 24.194 22.556 22.748 24.308C22.665 24.4195 22.5507 24.5038 22.4196 24.5501C22.2886 24.5964 22.1467 24.6026 22.012 24.568C21.8817 24.5332 21.7541 24.489 21.63 24.436C21.382 24.332 21.296 24.292 21.126 24.218L21.116 24.214C19.9718 23.7145 18.9125 23.0397 17.976 22.214C17.724 21.994 17.49 21.754 17.25 21.522C16.4632 20.7685 15.7775 19.916 15.21 18.986L15.092 18.796C15.0073 18.6683 14.9387 18.5306 14.888 18.386C14.812 18.092 15.01 17.856 15.01 17.856C15.01 17.856 15.496 17.324 15.722 17.036C15.9102 16.7966 16.0858 16.5476 16.248 16.29C16.484 15.91 16.558 15.52 16.434 15.218C15.874 13.85 15.294 12.488 14.698 11.136C14.58 10.868 14.23 10.676 13.912 10.638C13.804 10.626 13.696 10.614 13.588 10.606C13.3194 10.5927 13.0503 10.5953 12.782 10.614V10.616Z" fill="#FFF"/>
+                <svg xmlns="http://www.w3.org/2000/svg" width="40" height="40" viewBox="0 0 40 40" fill="none">
+                  <path d="M0.00802678 40L2.71203 30.064C0.930297 27.0097 -0.00578312 23.536 2.68818e-05 20C2.68818e-05 8.954 8.954 0 20 0C31.046 0 40 8.954 40 20C40 31.046 31.046 40 20 40C16.4656 40.0057 12.9933 39.0703 9.94 37.29L0.00802678 40ZM12.782 10.616C12.5237 10.632 12.2714 10.7001 12.04 10.816C11.8231 10.9389 11.625 11.0924 11.452 11.272C11.212 11.498 11.076 11.694 10.93 11.884C10.1908 12.846 9.7932 14.0268 9.8 15.24C9.804 16.22 10.06 17.174 10.46 18.066C11.278 19.87 12.624 21.78 14.402 23.55C14.83 23.976 15.248 24.404 15.698 24.802C17.9048 26.7449 20.5345 28.1461 23.378 28.894L24.516 29.068C24.886 29.088 25.256 29.06 25.628 29.042C26.2105 29.0119 26.7793 28.8542 27.294 28.58C27.626 28.404 27.782 28.316 28.06 28.14C28.06 28.14 28.146 28.084 28.31 27.96C28.58 27.76 28.746 27.618 28.97 27.384C29.136 27.212 29.28 27.01 29.39 26.78C29.546 26.454 29.702 25.832 29.766 25.314C29.814 24.918 29.8 24.702 29.794 24.568C29.786 24.354 29.608 24.132 29.414 24.038L28.25 23.516C28.25 23.516 26.51 22.758 25.448 22.274C25.3361 22.2252 25.2161 22.1974 25.094 22.192C24.9572 22.1779 24.8189 22.1933 24.6885 22.2372C24.5581 22.281 24.4386 22.3522 24.338 22.446V22.442C24.328 22.442 24.194 22.556 22.748 24.308C22.665 24.4195 22.5507 24.5038 22.4196 24.5501C22.2886 24.5964 22.1467 24.6026 22.012 24.568C21.8817 24.5332 21.7541 24.489 21.63 24.436C21.382 24.332 21.296 24.292 21.126 24.218L21.116 24.214C19.9718 23.7145 18.9125 23.0397 17.976 22.214C17.724 21.994 17.49 21.754 17.25 21.522C16.4632 20.7685 15.7775 19.916 15.21 18.986L15.092 18.796C15.0073 18.6683 14.9387 18.5306 14.888 18.386C14.812 18.092 15.01 17.856 15.01 17.856C15.01 17.856 15.496 17.324 15.722 17.036C15.9102 16.7966 16.0858 16.5476 16.248 16.29C16.484 15.91 16.558 15.52 16.434 15.218C15.874 13.85 15.294 12.488 14.698 11.136C14.58 10.868 14.23 10.676 13.912 10.638C13.804 10.626 13.696 10.614 13.588 10.606C13.3194 10.5927 13.0503 10.5953 12.782 10.614V10.616Z" fill="white"/>
                 </svg>
               </a>
               <a href="#" style="display: inline-block;">
@@ -1626,96 +1661,6 @@
               </a>
             </div>
           </div>
-        </div>
-      </div>
-    </div>
-  </div>
-  <div class="overlay"></div>
-  <div class="page-container">
-    <div class="sidebar-blue">
-      <div class="top-buttons">
-        <button class="close-menu">
-          <svg xmlns="http://www.w3.org/2000/svg" width="57" height="56" viewBox="0 0 57 56" fill="none" style="width: 57px; height: 56px; flex-shrink: 0;">
-            <path fill-rule="evenodd" clip-rule="evenodd" d="M28.5 56C44.2401 56 57 43.464 57 28C57 12.536 44.2401 0 28.5 0C12.7599 0 0 12.536 0 28C0 43.464 12.7599 56 28.5 56Z" fill="white"/>
-            <path fill-rule="evenodd" clip-rule="evenodd" d="M24.4695 27.9999L15.0848 37.22L19.1152 41.1797L28.5 31.9596L37.8848 41.1797L41.9152 37.22L32.5306 27.9999L41.9152 18.7797L37.8848 14.82L28.5 24.0401L19.1152 14.82L15.0848 18.7797L24.4695 27.9999Z" fill="#0098DB"/>
-          </svg>
-        </button>
-        <button>
-          <svg xmlns="http://www.w3.org/2000/svg" width="57" height="57" viewBox="0 0 57 57" fill="none" style="width: 57px; height: 57px; flex-shrink: 0;">
-            <path fill-rule="evenodd" clip-rule="evenodd" d="M28.5 57C44.2401 57 57 44.2401 57 28.5C57 12.7599 44.2401 0 28.5 0C12.7599 0 0 12.7599 0 28.5C0 44.2401 12.7599 57 28.5 57Z" fill="white"/>
-            <path fill-rule="evenodd" clip-rule="evenodd" d="M33.3439 22.6757L28.5 12.825L23.6561 22.6757L12.825 24.2554L20.6625 31.923L18.8123 42.75L28.5 37.6382L38.1877 42.75L36.3375 31.923L44.175 24.2554L33.3439 22.6757Z" fill="#0098DB"/>
-          </svg>
-        </button>
-      </div>
-    </div>
-    <div class="sidebar-white">
-      <div>
-        <div class="search-bar menu-search">
-          <input type="text" placeholder="Tìm kiếm tại đây">
-          <svg xmlns="http://www.w3.org/2000/svg" width="38" height="38" viewBox="0 0 38 38" fill="none" style="width: 38px; height: 38px; flex-shrink: 0;">
-            <path fill-rule="evenodd" clip-rule="evenodd" d="M25.2356 26.6183C22.5585 28.9732 19.0463 30.4013 15.2006 30.4013C6.80552 30.4013 0 23.5958 0 15.2006C0 6.80552 6.80552 0 15.2006 0C23.5958 0 30.4013 6.80552 30.4013 15.2006C30.4013 19.0463 28.9732 22.5585 26.6183 25.2356L27.9467 25.6061C28.2616 25.6938 28.5486 25.8615 28.7799 26.0928L38 35.3129L35.3129 38L26.0928 28.7799C25.8615 28.5486 25.6938 28.2616 25.6061 27.9467L25.2356 26.6183ZM26.6011 15.2006C26.6011 21.4969 21.4969 26.6011 15.2006 26.6011C8.90435 26.6011 3.80016 21.4969 3.80016 15.2006C3.80016 8.90435 8.90435 3.80016 15.2006 3.80016C21.4969 3.80016 26.6011 8.90435 26.6011 15.2006Z" fill="#324558"/>
-          </svg>
-        </div>
-        <div class="buttons">
-          <button class="buttons-1 active">LIÊN HỆ</button>
-          <button class="buttons-2">TRỞ VỀ</button>
-        </div>
-        <ul class="menu-items">
-          <li>
-            <svg xmlns="http://www.w3.org/2000/svg" width="44" height="37" viewBox="0 0 44 37" fill="none" style="width: 42.385px; height: 36.589px; flex-shrink: 0;">
-              <path d="M20.108 0.790692C21.2028 -0.241433 22.9122 -0.241424 24.007 0.790692L43.2498 18.933L40.6505 21.6899L36.2666 17.5567V34.7109C36.2666 35.7573 35.4183 36.6055 34.372 36.6055H25.8466V30.9218C25.8466 28.8292 24.1501 27.1328 22.0575 27.1328C19.9648 27.1328 18.2684 28.8292 18.2684 30.9218V36.6055H9.74301C8.69667 36.6055 7.84846 35.7573 7.84846 34.7109V17.5567L3.46452 21.6899L0.865234 18.933L20.108 0.790692Z" fill="#0098DB"/>
-            </svg>
-            TRANG CHỦ
-          </li>
-          <li>
-            <svg xmlns="http://www.w3.org/2000/svg" width="38" height="37" viewBox="0 0 38 37" fill="none" style="width: 36.944px; height: 36.944px; flex-shrink: 0;">
-              <path fill-rule="evenodd" clip-rule="evenodd" d="M19.1788 36.9533C29.3805 36.9533 37.6505 28.6832 37.6505 18.4815C37.6505 8.27985 29.3805 0.00976562 19.1788 0.00976562C8.97711 0.00976562 0.707031 8.27985 0.707031 18.4815C0.707031 28.6832 8.97711 36.9533 19.1788 36.9533ZM21.9495 10.1692C21.9495 11.1894 21.1226 12.0164 20.1024 12.0164C19.0822 12.0164 18.2552 11.1894 18.2552 10.1692C18.2552 9.14903 19.0822 8.32205 20.1024 8.32205C21.1226 8.32205 21.9495 9.14903 21.9495 10.1692ZM23.047 28.4735C22.0421 28.8817 21.128 29.1725 20.3081 29.3577C19.4883 29.5391 18.7102 29.6335 17.9736 29.6335C17.2483 29.6335 16.7005 29.437 16.3264 29.044C15.9525 28.6512 15.7672 28.0807 15.7672 27.3252C15.7672 27.1326 15.7863 26.8947 15.8241 26.6075C15.8617 26.3242 15.9337 25.8935 16.0394 25.323L17.6336 17.3333L15.1969 16.9556V15.9129L20.2967 14.7872H21.6002L19.7 24.8207C19.6432 25.1303 19.6018 25.3798 19.5752 25.5762C19.5488 25.769 19.5373 25.9275 19.5373 26.056C19.5373 26.5847 19.6621 26.9928 19.9151 27.2649C20.1646 27.5405 20.5271 27.6802 21.0032 27.6802C21.2148 27.6802 21.4943 27.6464 21.8456 27.5782C22.1931 27.5104 22.5937 27.4045 23.0469 27.2573L23.047 28.4735Z" fill="#0098DB"/>
-            </svg>
-            GIỚI THIỆU
-          </li>
-          <li>
-            <svg xmlns="http://www.w3.org/2000/svg" width="39" height="39" viewBox="0 0 39 39" fill="none" style="width: 37.891px; height: 37.891px; flex-shrink: 0;">
-              <path fill-rule="evenodd" clip-rule="evenodd" d="M25.4461 14.5558C26.5009 13.1369 27.1251 11.3787 27.1251 9.47464C27.1251 4.76618 23.3082 0.949219 18.5997 0.949219C13.8912 0.949219 10.0743 4.76618 10.0743 9.47464C10.0743 11.976 11.1515 14.2258 12.8674 15.7854L8.22433 25.6519C7.90075 25.6034 7.56958 25.5782 7.23245 25.5782C3.57031 25.5782 0.601562 28.547 0.601562 32.2091C0.601562 35.8713 3.57031 38.84 7.23245 38.84C10.5746 38.84 13.3392 36.3674 13.7968 33.1517L27.7844 31.0795C28.7386 32.8784 30.6306 34.1036 32.8087 34.1036C35.9477 34.1036 38.4923 31.559 38.4923 28.42C38.4923 25.2811 35.9477 22.7364 32.8087 22.7364C32.2848 22.7364 31.7773 22.8074 31.2956 22.9401L25.4461 14.5558ZM13.2423 29.4035L27.2293 27.3313C27.3877 26.5146 27.721 25.7603 28.1886 25.1089L22.5524 17.0303C21.3709 17.6497 20.0262 18.0001 18.5997 18.0001C17.7581 18.0001 16.945 17.8782 16.1771 17.651L11.6524 27.2661C12.3165 27.8604 12.8603 28.5866 13.2423 29.4035Z" fill="#0098DB"/>
-            </svg>
-            LĨNH VỰC HOẠT ĐỘNG
-          </li>
-          <li>
-            <svg xmlns="http://www.w3.org/2000/svg" width="45" height="44" viewBox="0 0 45 44" fill="none" style="width: 43.574px; height: 43.574px; flex-shrink: 0;">
-              <path d="M5.35173 38.3327C4.349 38.3327 3.53613 37.5199 3.53613 36.5171V18.2054C3.53613 17.7239 3.72742 17.2621 4.06791 16.9215L16.2453 4.74414V38.3327H5.35173Z" fill="#0098DB"/>
-              <path d="M18.9688 14.7299V38.3327H28.9545V4.74414L18.9688 14.7299Z" fill="#0098DB"/>
-              <path d="M31.6777 38.3327V14.7299L41.6635 4.74414V36.5171C41.6635 37.5199 40.8507 38.3327 39.8479 38.3327H31.6777Z" fill="#0098DB"/>
-            </svg>
-            DỰ ÁN
-          </li>
-          <li>
-            <svg xmlns="http://www.w3.org/2000/svg" width="45" height="37" viewBox="0 0 45 37" fill="none" style="width: 43.575px; height: 35.996px; flex-shrink: 0;">
-              <path d="M23.5979 0.197754C27.2599 0.197754 30.2285 3.06849 30.2285 6.60972C30.2285 6.84503 30.2152 7.08014 30.1885 7.31392L29.7605 11.0589C29.4134 14.0968 26.7586 16.3961 23.5979 16.3961C20.4373 16.3961 17.7825 14.0968 17.4354 11.0589L17.0075 7.31392C16.6053 3.79414 19.2299 0.625474 22.8697 0.236544C23.1115 0.210703 23.3547 0.197754 23.5979 0.197754Z" fill="#0098DB"/>
-              <path d="M10.3359 28.2631C10.3359 22.8658 15.0723 19.0962 23.5977 19.0962C32.1231 19.0962 36.8595 22.8658 36.8595 28.2631V36.1944H10.3359V28.2631Z" fill="#0098DB"/>
-              <path d="M14.185 7.63655C14.0835 6.74905 14.1129 5.88126 14.2571 5.04974C13.9096 4.97396 13.5489 4.93408 13.1788 4.93408C12.9935 4.93408 12.8084 4.94431 12.6242 4.96468C9.85236 5.27178 7.85361 7.77333 8.15989 10.5521L8.48577 13.5087C8.75013 15.9072 10.7718 17.7222 13.1788 17.7222C14.5755 17.7222 15.8424 17.111 16.7116 16.1294C15.5823 14.8364 14.8217 13.2089 14.6129 11.3815L14.185 7.63655Z" fill="#0098DB"/>
-              <path d="M44.4382 33.3522H39.7019V28.2627C39.7019 24.9465 38.3351 22.04 35.835 19.9316C41.3862 20.4269 44.4382 23.2317 44.4382 27.0906V33.3522Z" fill="#0098DB"/>
-              <path d="M30.4854 16.1296C31.6146 14.8365 32.3753 13.209 32.5841 11.3815L33.0121 7.63655C33.051 7.29562 33.0705 6.95281 33.0705 6.60971C33.0705 6.07706 33.0251 5.55634 32.9379 5.05079C33.1097 5.01337 33.2849 4.98448 33.4634 4.96468C33.6476 4.94431 33.8327 4.93408 34.018 4.93408C36.8068 4.93408 39.0674 7.20042 39.0674 9.99619C39.0674 10.182 39.0573 10.3675 39.0369 10.5521L38.7111 13.5087C38.4467 15.9072 36.425 17.7222 34.018 17.7222C32.6213 17.7222 31.3545 17.1111 30.4854 16.1296Z" fill="#0098DB"/>
-              <path d="M5.59963 26.5268C5.59963 23.2106 6.9664 20.3041 9.46657 18.1958C3.9153 18.691 0.863281 21.4959 0.863281 25.3548V31.6163H5.59963V26.5268Z" fill="#0098DB"/>
-            </svg>
-            THÀNH VIÊN
-          </li>
-          <li>
-            <svg xmlns="http://www.w3.org/2000/svg" width="31" height="36" viewBox="0 0 31 36" fill="none" style="width: 30.313px; height: 35.049px; flex-shrink: 0;">
-              <path fill-rule="evenodd" clip-rule="evenodd" d="M26.0724 6.61037H5.23244V0.926758H2.39063C1.34431 0.926758 0.496094 1.77497 0.496094 2.8213V34.0812C0.496094 35.1275 1.34431 35.9757 2.39063 35.9757H28.9142C29.9605 35.9757 30.8087 35.1275 30.8087 34.0812V2.8213C30.8087 1.77497 29.9605 0.926758 28.9142 0.926758H26.0724V6.61037ZM8.07425 15.1358H23.2306V18.9249H8.07425V15.1358ZM23.2306 22.714H8.07425V26.503H23.2306V22.714Z" fill="#0098DB"/>
-            </svg>
-            TIN TỨC
-          </li>
-        </ul>
-      </div>
-      <div class="notification">
-        <div class="circle"></div>
-        <div class="text">
-          <strong>SÔNG THIÊN</strong>
-          <span>SÔNG THIÊN là đơn vị tư vấn và phát triển dự án chuyên nghiệp</span>
-        </div>
-        <div class="dots">
-          <span></span>
-          <span></span>
-          <span></span>
         </div>
       </div>
     </div>

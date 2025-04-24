@@ -485,9 +485,17 @@
           height: 344.22px;
           top: 100px;
           left: 111px;
-            background-color: #0098DB;
-            z-index: 3;
+          background-color: #0098DB;
+          z-index: 3;
         }
+        .diamond-image {
+          width: 100%;
+          height: 100%;
+          object-fit: cover;
+          transform: rotate(-45deg); /* quay ngược lại vì cha đã rotate 45deg */
+          border-radius: 0; /* hoặc 50% nếu bạn muốn hình tròn */
+        }
+        
         .diamond-back-left {
             background-color: #4b4b4b;
             width: 276.64px;
@@ -1332,7 +1340,10 @@
     <div class="icon-container">
       <div class="diamond diamond-back-left"></div>
       <div class="diamond diamond-back-right"></div>
-      <div class="diamond diamond-front"></div>
+      <div class="diamond diamond-front">
+        <img src="logo/1.png" alt="Mô tả ảnh" class="diamond-image">
+      </div>
+      
     </div>
     <div class="ve-song-thien">
       <div class="title-frame">
