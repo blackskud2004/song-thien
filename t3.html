@@ -1303,6 +1303,142 @@
       font-weight: 600;
       line-height: 100%; /* 20px */
     }
+
+    .custom-section {
+      width: 100%;
+      max-width: 1920px;
+      height: 1300px;
+      flex-shrink: 0;
+      background: #E5F4FB;
+      margin: 60px auto 0;
+      position: relative;
+    }
+    .custom-frame {
+      width: 906px;
+      height: 96px;
+      flex-shrink: 0;
+      border-radius: 30px;
+      background: #1B97D4;
+      position: absolute;
+      top: 64px;
+      left: 50%;
+      transform: translateX(-50%);
+      display: flex;
+      justify-content: center;
+      align-items: center;
+    }
+    
+    .custom-frame-text {
+      display: flex;
+      width: 1222px;
+      height: 42px;
+      flex-direction: column;
+      justify-content: center;
+      flex-shrink: 0;
+      color: #FFF;
+      text-align: center;
+      font-family: Montserrat;
+      font-size: 50px;
+      font-style: normal;
+      font-weight: 800;
+      line-height: 100%;
+    }
+    .custom-table-wrapper {
+      position: absolute;
+      margin-top: 220px; /* Đẩy xuống đúng khoảng cách */
+      width: 100%;
+      max-width: 1349.531px;
+      margin-left: 15%;
+      margin-right: auto;
+    }
+    
+    
+    .custom-data-table {
+      width: 100%;
+      height: auto;
+      min-height: 592.048px;
+      flex-shrink: 0;
+      background: #0098DB;
+      transition: background 0.5s ease;
+    }
+    
+    .custom-vector-left,
+    .custom-vector-right {
+      position: absolute;
+      top: 30%;
+      transform: translateY(-50%);
+      width: 43.974px;
+      height: 51.614px;
+      z-index: 100;
+    }
+    
+    .custom-vector-left {
+      left: -100px;
+    }
+    
+    .custom-vector-right {
+      right: -80px;
+    }
+    
+    .custom-vector-left button,
+    .custom-vector-right button {
+      background: none;
+      border: none;
+      padding: 0;
+      cursor: pointer;
+      display: block;
+      width: 100%;
+      height: 100%;
+    }
+    
+    .custom-vector-left button svg path,
+    .custom-vector-right button svg path {
+      fill: #0098DB;
+    }
+    
+    .custom-dots-container {
+      position: absolute;
+      top: 100%;
+      left: 50%;
+      transform: translateX(-50%);
+      display: flex;
+      gap: 10px;
+      margin-top: -27%;
+    }
+    
+    .custom-dot {
+      width: 9px;
+      height: 10px;
+      flex-shrink: 0;
+      border-radius: 40px;
+      background: #0098DB;
+      transition: height 0.3s ease;
+    }
+    
+    .custom-dot.active {
+      height: 20px;
+    }
+    
+    .custom-management-text {
+      display: flex;
+      width: 1333px;
+      height: 80px;
+      flex-direction: column;
+      justify-content: flex-end;
+      flex-shrink: 0;
+      color: #000;
+      text-align: inherit;
+      font-family: Inter;
+      font-size: 30px;
+      font-style: normal;
+      font-weight: 600;
+      line-height: 100%; /* 20px */
+      margin-top: 23%
+    }
+  
+  
+    
+    
 </style>
 </head>
 <body>
@@ -1679,6 +1815,49 @@
       </div>
     </div>
 </div>
+  <div class="custom-section">
+    <div class="custom-frame">
+      <div class="custom-frame-text">QUẢN LÝ VẬN HÀNH DỰ ÁN</div>
+    </div>
+    <div class="custom-table-wrapper">
+      <div class="custom-data-table"></div>
+      <div class="custom-management-text">
+        Sông Thiên cung cấp các giải pháp về quản lý và vận hành dự án sau khi đã phân phối thành công dự án ra thị trường bao gồm<br><br>
+        – Quản lý các tài sản cho thuê như khối đế trung tâm thương mại, không gian cảnh quan, không gian tầng mái,…<br><br>
+        – Tìm kiếm đối tác, khách hàng cho thuê, quản lý dòng tiền thuê, đảm bảo hiệu quả cho quý đối tác<br><br>
+        – Quản lý vận hành chung cư, khu đô thị, bảo vệ, trị an,…
+      </div>
+      <div class="custom-vector-left">
+        <button>
+          <svg xmlns="http://www.w3.org/2000/svg" width="66.459" height="80" viewBox="0 0 44 54" fill="none">
+            <path d="M1.12043 24.8399C-0.373477 25.7583 -0.373477 27.9767 1.12043 28.8951L40.4787 53.0932C42.0167 54.0387 43.9735 52.9035 43.9735 51.0656V2.66939C43.9735 0.831442 42.0167 -0.303767 40.4787 0.641807L1.12043 24.8399Z" fill="#0098DB"/>
+          </svg>
+        </button>
+      </div>
+      <div class="custom-vector-right">
+        <button>
+          <svg xmlns="http://www.w3.org/2000/svg" width="68.429" height="80" viewBox="0 0 44 53" fill="none">
+            <path d="M42.8804 24.6569C44.3743 25.549 44.3743 27.704 42.8804 28.5962L3.52213 52.1029C1.98415 53.0214 0.0273438 51.9187 0.0273438 50.1332V3.11979C0.0273438 1.33436 1.98415 0.231584 3.52213 1.15014L42.8804 24.6569Z" fill="#0098DB"/>
+          </svg>
+        </button>
+      </div>
+      <div class="custom-dots-container">
+        <span class="custom-dot active"></span>
+        <span class="custom-dot"></span>
+        <span class="custom-dot"></span>
+        <span class="custom-dot"></span>
+      </div>
+      
+      
+    </div>
+    
+    
+  </div>
+
+
+</div>
+
+
 </div>
 <div class="footer">
   <div class="footer-content">
@@ -1884,6 +2063,31 @@
 
   // Initialize with the first color and active dot
   updateTableBackgroundAndDots();
+});
+document.addEventListener('DOMContentLoaded', function () {
+  const table = document.querySelector('.custom-data-table');
+  const leftButton = document.querySelector('.custom-vector-left button');
+  const rightButton = document.querySelector('.custom-vector-right button');
+  const dots = document.querySelectorAll('.custom-dot');
+  const colors = ['#0098DB', '#0085C0', '#03638E', '#002434'];
+  let currentIndex = 0;
+
+  function updateTable() {
+    table.style.background = colors[currentIndex];
+    dots.forEach((dot, i) => dot.classList.toggle('active', i === currentIndex));
+  }
+
+  leftButton.addEventListener('click', function () {
+    currentIndex = (currentIndex - 1 + colors.length) % colors.length;
+    updateTable();
+  });
+
+  rightButton.addEventListener('click', function () {
+    currentIndex = (currentIndex + 1) % colors.length;
+    updateTable();
+  });
+
+  updateTable();
 });
 
 </script>
